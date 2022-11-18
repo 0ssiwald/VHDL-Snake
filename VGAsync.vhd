@@ -1,0 +1,105 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- for the array data type 
+use work.ArraysInYPosition_type.all;
+
+--Horizontal Line has 1280 visible pixels, 48 front porch, 248 back porch, 112 sync pulse =  1680 pixel
+--Vertical Line has 1024 visible pixels, 1 front porch, 38 back portch, 3 sync pulse = 1066 pixel
+ENTITY SYNC IS 
+PORT(
+	VGACLK: IN STD_LOGIC;
+	HSYNC, VSYNC: OUT STD_LOGIC;
+	R: OUT STD_LOGIC_VECTOR(7 downto 0);
+	G: OUT STD_LOGIC_VECTOR(7 downto 0);
+	B: OUT STD_LOGIC_VECTOR(7 downto 0);
+	SyncSig: OUT STD_LOGIC; -------------------
+--sets all pixels to 0
+--	Reset: IN STD_LOGIC;
+-- Datatype Array of Vektor that inputs the Game Data
+	DrawPixel: IN STD_LOGIC
+	);
+END SYNC;
+ 
+ARCHITECTURE MAIN OF SYNC IS
+--Current Position on Screen (HPOS and VPOS)
+	SIGNAL HPOS: INTEGER RANGE 0 TO 1688:=0;
+	SIGNAL VPOS: INTEGER RANGE 0 TO 1066:=0;
+BEGIN
+
+
+PROCESS(VGACLK)
+BEGIN
+ 
+	IF(VGACLK'EVENT AND VGACLK='1')THEN   ---nochmal verstehen
+
+------------------------------------------------------------------------------------------------------------------------------------------
+	IF(DrawPixel ='1')THEN
+		R <= (others=>'1');
+		G <= (others=>'1');
+		B <= (others=>'1');
+	ELSE
+		R <= (others=>'0');
+		G <= (others=>'0');
+		B <= (others=>'0');
+	END IF;
+-------------------------------------------------------------------------------------------------------------------------------------				
+-- to display the bounderies of the playing fied
+		IF(HPOS>(408+128) AND HPOS<(1687-128) AND ((VPOS>42 AND VPOS<(42+16)) OR (VPOS>(1066-16) AND VPOS<1067)))THEN
+			R <= (others=>'1');
+			G <= (others=>'1');
+			B <= (others=>'1');
+		END IF;
+		IF((HPOS>(408+128) AND HPOS<(535+16)) OR (HPOS>1544 AND HPOS<(1543+16)))THEN
+			R <= (others=>'1');
+			G <= (others=>'1');
+			B <= (others=>'1');
+		END IF;
+---------------------------------------------------------------------------------------------------------------------------------------		
+--With Clock Cycle HPOS gets increased by 1 till End of Line then reset to 0 and VPOS is increassed by 1
+		IF(HPOS<1688)THEN
+			HPOS<=HPOS+1;
+			SyncSig <= '0'; 
+		ELSE
+			HPOS<=0;
+			IF(VPOS<1066)THEN
+				VPOS<=VPOS+1;
+			ELSE
+				VPOS<=0;
+				SyncSig <= '1';
+			END IF;
+		END IF;
+---------------------------------------------------------------------------------------------------------------------------------------
+--Sycronization programmed 
+--horizontals sync must be low between front porch and back porch otherwise its high
+		IF(HPOS>48 AND HPOS<160)THEN
+			HSYNC<='0';
+		ELSE
+			HSYNC<='1';
+		END IF;
+--Same for verticals sync 
+		IF(VPOS>0 AND VPOS<4)THEN
+			VSYNC<='0';
+		ELSE
+			VSYNC<='1';
+		END IF;
+-------------------------------------------------------------------------------------------------------------------------------------------
+--Reset all Signals	
+--	IF(Reset = '1')THEN
+--		R<=(others=>'0');
+--		G<=(others=>'0');
+--		B<=(others=>'0');
+--	END IF;	
+-------------------------------------------------------------------------------------------------------------------------------------------
+--From Front Porch to End of Back Porch RGB should be low 
+		IF((HPOS>0 AND HPOS<408) OR (VPOS>0 AND VPOS<42))THEN
+			R<=(others=>'0');
+			G<=(others=>'0');
+			B<=(others=>'0');
+		END IF;
+--------------------------------------------------------------------------------------------------------------------------------------------
+	END IF;
+END PROCESS;
+END MAIN;
+	

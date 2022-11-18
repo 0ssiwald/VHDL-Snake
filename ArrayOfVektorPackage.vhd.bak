@@ -1,0 +1,10 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- packige do define array for the 16 y vekors
+-- inspired by https://stackoverflow.com/questions/20308514/declaring-an-array-within-an-entity-in-vhdl
+
+PACKAGE ArraysInYPosition_type IS
+    TYPE ArraysInYPosition IS ARRAY(0 TO 15) OF std_logic_vector (0 TO 15);
+END PACKAGE ArraysInYPosition_type;
+

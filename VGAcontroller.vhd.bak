@@ -1,0 +1,60 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+-- VGA Controller for 1280 x 1024 pixel @60 Hz with 108 MHz Pixelclock
+
+ENTITY VGAcontroller IS
+PORT(
+
+--MainClock des Boards mit 50 MHz
+CLOCK_50:			IN STD_LOGIC;  --verändert
+
+--Synchronization Signals 
+VGA_HS,VGA_VS:		OUT STD_LOGIC;
+--RGB Coulor Canels 
+VGA_R,VGA_G,VGA_B: OUT STD_LOGIC_VECTOR(3 downto 0)
+);
+END VGAcontroller;
+
+ARCHITECTURE MAIN OF VGAcontroller IS
+SIGNAL VGACLK, RESET: STD_LOGIC:='0';
+-------------------------------------------------------
+--with PLL generated Clock
+component PLL is
+		port (
+			clk_in_clk  : in  std_logic := 'X'; -- clk
+			reset_reset : in  std_logic := 'X'; -- reset
+			clk_out_clk : out std_logic         -- clk
+		);
+	end component PLL;
+-------------------------------------------------------	
+--include SYNC Component from VGAsync file 
+COMPONENT SYNC IS 
+	PORT(
+		CLK:				IN STD_LOGIC;
+		HSYNC,VSYNC: 	OUT STD_LOGIC;
+		R,G,B	:			OUT STD_LOGIC_VECTOR(3 downto 0)
+	);
+END COMPONENT SYNC;
+------------------------------------------------------
+BEGIN
+--Einbinden der Sync component
+C1: SYNC PORT MAP(
+			CLK => VGACLK,
+			HSYNC => VGA_HS,
+			VSYNC => VGA_VS,
+			R => VGA_R,
+			G => VGA_G,
+			B => VGA_B
+			);
+
+--Einbinden der PLL component
+C2: PLL PORT MAP(
+			clk_in_clk  => CLOCK_50,  			--  clk_in.clk
+			reset_reset => RESET, 				--   reset.reset
+			clk_out_clk => VGACLK 				 -- clk_out.clk
+			);
+
+END MAIN;

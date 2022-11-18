@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- for the array data type 
+use work.ArraysInYPosition_type.all;
+
+
+ENTITY GameLogic IS
+	PORT(
+		GameClk: 	IN STD_LOGIC;
+		Reset: 		IN STD_LOGIC;
+		ButtonIn: 	IN STD_LOGIC_VECTOR (3 downto 0);
+		VectorOut: OUT ArraysInYPosition
+	);
+END GameLogic;
+
+ARCHITECTURE MainGame OF GameLogic IS
+
+
+SIGNAL ResetSig: STD_LOGIC;
+
+
+BEGIN
+
+PROCESS(GameClk)
+BEGIN
+
+END PROCESS;
+
+
+END Main Game;

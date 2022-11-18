@@ -1,0 +1,76 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+--Horizontal Line has 1280 visible pixels, 48 front porch, 248 back porch, 112 sync pulse =  1688 pixel
+--Vertical Line has 1024 visible pixels, 1 front porch, 38 back portch, 3 sync pulse = 1066 pixel
+ENTITY SYNC IS 
+PORT(
+	CLK: IN STD_LOGIC;
+	HSYNC, VSYNC: OUT STD_LOGIC;
+	R: OUT STD_LOGIC_VECTOR(3 downto 0);
+	G: OUT STD_LOGIC_VECTOR(3 downto 0);
+	B: OUT STD_LOGIC_VECTOR(3 downto 0)
+	);
+END SYNC;
+
+ARCHITECTURE MAIN OF SYNC IS
+
+--Current Position on Screen (HPOS and VPOS)
+SIGNAL HPOS: INTEGER RANGE 0 TO 1688:=0;
+SIGNAL VPOS: INTEGER RANGE 0 TO 1066:=0;
+
+BEGIN
+PROCESS(CLK)
+BEGIN
+
+IF(CLK'EVENT AND CLK='1')THEN
+
+-- Um Weißen Stich zu Malen
+	IF(HPOS=1048 OR VPOS=554)THEN
+		R<=(OTHERS=>'1');
+		G<=(OTHERS=>'1');
+		B<=(OTHERS=>'1');
+	ELSE
+		R<=(OTHERS=>'0');
+		G<=(OTHERS=>'0');
+		B<=(OTHERS=>'0');
+	END IF;
+	
+--With Clock Cycle HPOS gets increased by 1 till End of Line then reset to 0 and VPOS is increassed by 1
+	IF(HPOS<1688)THEN
+		HPOS<=HPOS+1;
+	ELSE
+		HPOS<=0;
+		IF(VPOS<1066)THEN
+			VPOS<=VPOS+1;
+		ELSE
+			VPOS<=0;
+		END IF;
+	END IF;
+	
+	--Sycronization programmed 
+	--horizontals sync must be low between front porch and back porch otherwise its high
+	IF(HPOS>48 AND HPOS<160)THEN----HSYNC
+	   HSYNC<='0';
+	ELSE
+	   HSYNC<='1';
+	END IF;
+	--Same for verticals sync 
+   IF(VPOS>0 AND VPOS<4)THEN----------vsync
+	   VSYNC<='0';
+	ELSE
+	   VSYNC<='1';
+	END IF;
+	
+	--From Front Porch to End of Back Porch RGB should be low
+	IF((HPOS>0 AND HPOS<408) OR (VPOS>0 AND VPOS<42))THEN
+		R<=(others=>'0');
+		G<=(others=>'0');
+		B<=(others=>'0');
+	END IF;
+	
+END IF;
+END PROCESS;
+END MAIN;
+	
