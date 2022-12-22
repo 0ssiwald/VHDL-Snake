@@ -3,44 +3,32 @@
 -- A LFSR or Linear Feedback Shift Register
 -------------------------------------------------------------------------------
  
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
  
-entity LFSR is
-  port (
-    i_Clk    	 : in std_logic;
-    o_LFSR_Data : out std_logic_vector(7 downto 0)
+ENTITY LFSR IS
+  PORT (
+    i_Clk    	 : IN std_logic;
+    o_LFSR_Data : OUT std_logic_vector(7 DOWNTO 0)
     );
-end entity LFSR;
+END ENTITY LFSR;
  
-architecture RTL of LFSR is
+ARCHITECTURE RTL OF LFSR IS
  
-  signal r_LFSR : std_logic_vector(8 downto 1) := (others=> '0');
-  signal w_XNOR : std_logic;
- -- Optional Seed Value
-  signal i_Seed_DV   : std_logic := '1';
-  signal i_Seed_Data : std_logic_vector(7 downto 0) := "10010100";
-  
-  signal i_Enable : std_logic := '1';
+  SIGNAL r_LFSR : std_logic_vector(7 DOWNTO 0) := "10010100"; -- initilized with seed
+  SIGNAL w_XNOR : std_logic;
    
-begin
+BEGIN
  
-  p_LFSR : process (i_Clk) is
-  begin
-    if rising_edge(i_Clk) then
-     if i_Enable = '1' then
-       if i_Seed_DV = '1' then
-          r_LFSR <= i_Seed_Data;
-			 i_Seed_DV <= '0';
-        else
-          r_LFSR <= r_LFSR(r_LFSR'left-1 downto 1) & w_XNOR;
-       end if;
-      end if;
-    end if;
-  end process p_LFSR; 
+  p_LFSR : PROCESS(i_Clk) IS
+  BEGIN
+    IF RISING_EDGE(i_Clk) THEN
+         r_LFSR <= r_LFSR(6 DOWNTO 0) & w_XNOR;
+      END IF;
+  END PROCESS p_LFSR; 
  
-  w_XNOR <= r_LFSR(8) xnor r_LFSR(6) xnor r_LFSR(5) xnor r_LFSR(4);  
+  w_XNOR <= r_LFSR(7) xnor r_LFSR(5) xnor r_LFSR(4) xnor r_LFSR(3);  -- these give the most number of states for 8 bit 
   
-  o_LFSR_Data <= r_LFSR(r_LFSR'left downto 1);
+  o_LFSR_Data <= r_LFSR;
    
-end architecture RTL;
+END ARCHITECTURE RTL;

@@ -17,10 +17,10 @@ ARCHITECTURE Main OF Joypad IS
 BEGIN
 	
 PROCESS(Clk_50)
-	VARIABLE MovementstateNextX: INTEGER RANGE -1 TO 1 := -1;
+	VARIABLE MovementstateNextX: INTEGER RANGE -1 TO 1 := -1; --These Variables are only to initilize the Movementstates 
 	VARIABLE MovementstateNextY: INTEGER RANGE -1 TO 1 := 0;
 	BEGIN
-	IF(Clk_50'EVENT AND Clk_50='1')THEN
+	IF(RISING_EDGE(Clk_50))THEN
 ------------------------------------------------------------------------------------------
 -- Setting the Movementstate by the ButtonIn Input
 		IF(ButtonIn = 	"0111")THEN

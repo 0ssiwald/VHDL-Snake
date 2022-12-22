@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- for the array data type 
-use work.ArraysInYPosition_type.all;
+-- VGA Controller for 1280 x 1024 pixel @60 Hz with 108 MHz Pixelclock
+-- based on https://www.youtube.com/watch?v=WK5FT5RD1sU
 
---Horizontal Line has 1280 visible pixels, 48 front porch, 248 back porch, 112 sync pulse =  1680 pixel
+--Horizontal Line has 1280 visible pixels, 48 front porch, 248 back porch, 112 sync pulse =  1688 pixel
 --Vertical Line has 1024 visible pixels, 1 front porch, 38 back portch, 3 sync pulse = 1066 pixel
 ENTITY SYNC IS 
 PORT(
@@ -14,10 +14,7 @@ PORT(
 	R: OUT STD_LOGIC_VECTOR(7 downto 0);
 	G: OUT STD_LOGIC_VECTOR(7 downto 0);
 	B: OUT STD_LOGIC_VECTOR(7 downto 0);
-	SyncSig: OUT STD_LOGIC; -------------------
---sets all pixels to 0
---	Reset: IN STD_LOGIC;
--- Datatype Array of Vektor that inputs the Game Data
+	SyncSig: OUT STD_LOGIC;
 	DrawPixel: IN STD_LOGIC
 	);
 END SYNC;
@@ -28,8 +25,7 @@ ARCHITECTURE MAIN OF SYNC IS
 	SIGNAL VPOS: INTEGER RANGE 0 TO 1066:=0;
 BEGIN
 
-
-PROCESS(VGACLK)
+VGASignals: PROCESS(VGACLK)
 BEGIN
  
 	IF(VGACLK'EVENT AND VGACLK='1')THEN   ---nochmal verstehen
@@ -84,13 +80,6 @@ BEGIN
 		ELSE
 			VSYNC<='1';
 		END IF;
--------------------------------------------------------------------------------------------------------------------------------------------
---Reset all Signals	
---	IF(Reset = '1')THEN
---		R<=(others=>'0');
---		G<=(others=>'0');
---		B<=(others=>'0');
---	END IF;	
 -------------------------------------------------------------------------------------------------------------------------------------------
 --From Front Porch to End of Back Porch RGB should be low 
 		IF((HPOS>0 AND HPOS<408) OR (VPOS>0 AND VPOS<42))THEN

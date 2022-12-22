@@ -2,11 +2,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- for the array data type 
-use work.ArraysInYPosition_type.all;
-
--- VGA Controller for 1280 x 1024 pixel @60 Hz with 108 MHz Pixelclock
--- based on https://www.youtube.com/watch?v=WK5FT5RD1sU
 
 ENTITY VGAcontroller IS
 	PORT(
@@ -52,7 +47,6 @@ END COMPONENT Joypad;
 COMPONENT PLL IS
 			PORT(
 				inclk0		: IN STD_LOGIC	 := '0';
---				areset		: IN STD_LOGIC  := '0';
 				c0				: OUT STD_LOGIC 
 			);
 	END COMPONENT PLL;
@@ -62,7 +56,6 @@ COMPONENT SYNC IS
 	PORT(
 		VGACLK:			IN STD_LOGIC;
 		HSYNC,VSYNC: 	OUT STD_LOGIC;
---		Reset:			IN STD_LOGIC;
 		R,G,B	:			OUT STD_LOGIC_VECTOR(7 downto 0);
 		SyncSig: 		OUT STD_LOGIC;
 		DrawPixel: 		IN STD_LOGIC
@@ -82,10 +75,9 @@ COMPONENT GameLogic IS
 	);
 END  COMPONENT GameLogic;
 -----------------------------------------------------
---Testsignals of the Game logic
+--Testsignals to connect the Componens with port maps
 --SIGNAL Game: ArraysInYPosition;
 SIGNAL VGACLKSig: 			STD_LOGIC;
---SIGNAL Clk_50Sig: 			STD_LOGIC;
 SIGNAL SyncSig: 				STD_LOGIC;
 SIGNAL DrawPixel: 			STD_LOGIC;
 SIGNAL MovementstateXSig:	INTEGER RANGE -1 TO 1;
