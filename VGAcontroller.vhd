@@ -58,7 +58,9 @@ COMPONENT SYNC IS
 		HSYNC,VSYNC: 	OUT STD_LOGIC;
 		R,G,B	:			OUT STD_LOGIC_VECTOR(7 downto 0);
 		SyncSig: 		OUT STD_LOGIC;
-		DrawPixel: 		IN STD_LOGIC
+		DrawPixel: 		IN STD_LOGIC;
+		DrawHead:		IN STD_LOGIC;
+		DrawFood:		IN STD_LOGIC
 	);
 END COMPONENT SYNC;
 ------------------------------------------------------
@@ -69,6 +71,8 @@ COMPONENT GameLogic IS
 		Reset: 				IN STD_LOGIC;
 		SyncSig: 			IN STD_LOGIC;
 		DrawPixel: 			OUT STD_LOGIC;
+		DrawHead: 			OUT STD_LOGIC;
+		DrawFood: 			OUT STD_LOGIC;
 		in_LFSR_Data : 	IN std_logic_vector(7 downto 0);
 		MovementstateX:	IN INTEGER RANGE -1 TO 1;
 		MovementstateY:	IN INTEGER RANGE -1 TO 1
@@ -79,7 +83,9 @@ END  COMPONENT GameLogic;
 --SIGNAL Game: ArraysInYPosition;
 SIGNAL VGACLKSig: 			STD_LOGIC;
 SIGNAL SyncSig: 				STD_LOGIC;
-SIGNAL DrawPixel: 			STD_LOGIC;
+SIGNAL DrawPixelSig: 		STD_LOGIC;
+SIGNAL DrawHeadSig: 			STD_LOGIC;
+SIGNAL DrawFoodSig:			STD_LOGIC;
 SIGNAL MovementstateXSig:	INTEGER RANGE -1 TO 1;
 SIGNAL MovementstateYSig:	INTEGER RANGE -1 TO 1;
 SIGNAL LFSR_DataSig:			std_logic_vector(7 downto 0);
@@ -107,7 +113,9 @@ Sync_inst: SYNC PORT MAP(
 			G => VGA_G,
 			B => VGA_B,
 			SyncSig => SyncSig,
-			DrawPixel => DrawPixel
+			DrawPixel => DrawPixelSig,
+			DrawFood => DrawFoodSig,
+			DrawHead => DrawHeadSig
 			);
 ----------------------------------------------------
 --Include the GameLogic componet
@@ -116,7 +124,9 @@ GameLogic_inst: GameLogic PORT MAP(
 			VGACLK 				=> VGACLKSig,
 			Reset					=> Reset,
 			SyncSig 				=> SyncSig,
-			DrawPixel 			=> DrawPixel,
+			DrawPixel			=> DrawPixelSig,
+			DrawFood 			=> DrawFoodSig,
+			DrawHead 			=> DrawHeadSig,
 			in_LFSR_Data 		=> LFSR_DataSig,
 			MovementstateX		=> MovementstateXSig,
 			MovementstateY		=> MovementstateYSig

@@ -13,7 +13,9 @@ ENTITY GameLogic IS
 		Reset: 				IN STD_LOGIC;
 		SyncSig: 			IN STD_LOGIC;
 		DrawPixel: 			OUT STD_LOGIC;
-		in_LFSR_Data : 	IN std_logic_vector(7 downto 0);
+		Drawfood:			OUT STD_LOGIC;
+		DrawHead:			OUT STD_LOGIC;
+		in_LFSR_Data : 	IN STD_LOGIC_VECTOR(7 downto 0);
 		MovementstateX: 	IN INTEGER RANGE -1 TO 1;
 		MovementstateY: 	IN INTEGER RANGE -1 TO 1
 	);
@@ -57,7 +59,7 @@ SnakeSpeed: PROCESS(Clk_50)
 VARIABLE Count: INTEGER RANGE 0 TO g_SNAKE_SPEED_CLK; --change here for faster/slower snake 
 BEGIN
     IF(RISING_EDGE(Clk_50)) THEN
-        IF(Count = Count'HIGH) THEN -- if g_SNAKE_SPEED_CLK is reached 
+        IF(Count = g_SNAKE_SPEED_CLK)THEN -- if g_SNAKE_SPEED_CLK is reached 
             GameClock <= '1';
             Count := 0;
         ELSE
@@ -78,7 +80,7 @@ IF(RISING_EDGE(Clk_50)) THEN
 
 	FOR y IN 0 TO 15 LOOP
 		FOR x IN 0 TO 15 LOOP
-			IF(Reset = '0' AND TrackSnakeArray(y)(x) = 0 AND (RandomNumber - (x+(16*y))) > 0)THEN
+			IF(Reset = '0' AND TrackSnakeArray(y)(x) = 0 AND ((RandomNumber - (x+(16*y))) > 0))THEN
 				FoodPosX <= x;
 				FoodPosY <= y;
 			END IF;
@@ -100,7 +102,7 @@ IF(RISING_EDGE(Clk_50)) THEN
 	IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
 		TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= (BiggestNumber + 1);
 		BiggestNumber <= BiggestNumber + 1;	
-		TrackSnakeArray(FoodPosX)(FoodPosY) <= 255;
+		TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
 --When the Number is > 0 and < 255 -> the Snake ate itself
 	ELSIF((TrackSnakeArray(NextMoveYPos)(NextMoveXPos) /= 0))THEN
 		IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = (BiggestNumber - 1))THEN -- is to avoid moving the snake into itself 
@@ -176,11 +178,16 @@ IF(RISING_EDGE(VGAClk)) THEN
 -- vertical:	 | 42 sync pixels  | 16 edge | 16 x 62 grid px | 16 edge | == 1066 pixel
 --						1-42					43-58		59-74 ...
 DrawPixel <= '0';
-	L1: FOR y in 0 to 15 LOOP 
-		L2: FOR x IN 0 to 15 LOOP 
-			IF(HPOS>(552+(62*x)) AND HPOS<(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<(58+62+62*y) AND TrackSnakeArray(y)(x) > 0)THEN -- j is the y Position and i is the x position of the square
+Drawfood <= '0';
+DrawHead <= '0';
+	FOR y in 0 to 15 LOOP 
+		FOR x IN 0 to 15 LOOP 
+			IF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y) AND TrackSnakeArray(y)(x) = BiggestNumber)THEN -- j is the y Position and i is the x position of the square
+				DrawHead <= '1';
+			ELSIF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y) AND TrackSnakeArray(y)(x) = 255)THEN -- j is the y Position and i is the x position of the square
+				Drawfood <= '1';
+			ELSIF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y) AND TrackSnakeArray(y)(x) > 0)THEN -- j is the y Position and i is the x position of the square
 				DrawPixel <= '1';
-				EXIT L1;
 			END IF;
 		END LOOP;
 	END LOOP;
