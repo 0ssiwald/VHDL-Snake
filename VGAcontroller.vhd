@@ -88,7 +88,7 @@ SIGNAL DrawHeadSig: 			STD_LOGIC;
 SIGNAL DrawFoodSig:			STD_LOGIC;
 SIGNAL MovementstateXSig:	INTEGER RANGE -1 TO 1;
 SIGNAL MovementstateYSig:	INTEGER RANGE -1 TO 1;
-SIGNAL LFSR_DataSig:			std_logic_vector(7 downto 0);
+SIGNAL LFSR_DataSig:			STD_LOGIC_VECTOR(7 downto 0);
 
 BEGIN
 --these outputs to the VGA DAC ADV7123 just need to be in this state 
@@ -136,7 +136,6 @@ GameLogic_inst: GameLogic PORT MAP(
 PLL_inst : PLL PORT MAP (
 			inclk0		=> CLOCK_50,
 			c0	 			=> VGACLKSig
---			areset		=> Reset
 	);
 ---------------------------------------------------
 --Include the Joypad component

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGAcontroller
-Wed Dec 28 15:22:36 2022
+Sat Jan  7 13:31:54 2023
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -20,7 +20,7 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: GameLogic:GameLogic_inst
  14. Parameter Settings for User Entity Instance: PLL:PLL_inst|altpll:altpll_component
- 15. Parameter Settings for Inferred Entity Instance: GameLogic:GameLogic_inst|lpm_add_sub:Add257
+ 15. Parameter Settings for Inferred Entity Instance: GameLogic:GameLogic_inst|lpm_add_sub:Add241
  16. altpll Parameter Settings by Entity Instance
  17. Port Connectivity Checks: "PLL:PLL_inst"
  18. Post-Synthesis Netlist Statistics for Top Partition
@@ -52,15 +52,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Dec 28 15:22:36 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan  7 13:31:54 2023       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; VGAcontroller                               ;
 ; Top-level Entity Name              ; VGAcontroller                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 20,317                                      ;
-;     Total combinational functions  ; 20,297                                      ;
-;     Dedicated logic registers      ; 2,201                                       ;
-; Total registers                    ; 2201                                        ;
+; Total logic elements               ; 19,682                                      ;
+;     Total combinational functions  ; 19,659                                      ;
+;     Dedicated logic registers      ; 2,197                                       ;
+; Total registers                    ; 2197                                        ;
 ; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -211,20 +211,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 20,317         ;
+; Estimated Total logic elements              ; 19,682         ;
 ;                                             ;                ;
-; Total combinational functions               ; 20297          ;
+; Total combinational functions               ; 19659          ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 12361          ;
-;     -- 3 input functions                    ; 3060           ;
-;     -- <=2 input functions                  ; 4876           ;
+;     -- 4 input functions                    ; 12060          ;
+;     -- 3 input functions                    ; 2931           ;
+;     -- <=2 input functions                  ; 4668           ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 14990          ;
-;     -- arithmetic mode                      ; 5307           ;
+;     -- normal mode                          ; 14460          ;
+;     -- arithmetic mode                      ; 5199           ;
 ;                                             ;                ;
-; Total registers                             ; 2201           ;
-;     -- Dedicated logic registers            ; 2201           ;
+; Total registers                             ; 2197           ;
+;     -- Dedicated logic registers            ; 2197           ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 35             ;
@@ -235,9 +235,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 2128           ;
-; Total fan-out                               ; 74496          ;
-; Average fan-out                             ; 3.30           ;
+; Maximum fan-out                             ; 2124           ;
+; Total fan-out                               ; 72510          ;
+; Average fan-out                             ; 3.31           ;
 +---------------------------------------------+----------------+
 
 
@@ -246,12 +246,12 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                   ; Entity Name   ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------+---------------+--------------+
-; |VGAcontroller                        ; 20297 (0)           ; 2201 (0)                  ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |VGAcontroller                                                                        ; VGAcontroller ; work         ;
-;    |GameLogic:GameLogic_inst|         ; 20225 (20223)       ; 2141 (2141)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|GameLogic:GameLogic_inst                                               ; GameLogic     ; work         ;
-;       |lpm_add_sub:Add257|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|GameLogic:GameLogic_inst|lpm_add_sub:Add257                            ; lpm_add_sub   ; work         ;
-;          |add_sub_8ui:auto_generated| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|GameLogic:GameLogic_inst|lpm_add_sub:Add257|add_sub_8ui:auto_generated ; add_sub_8ui   ; work         ;
+; |VGAcontroller                        ; 19659 (0)           ; 2197 (0)                  ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |VGAcontroller                                                                        ; VGAcontroller ; work         ;
+;    |GameLogic:GameLogic_inst|         ; 19589 (19587)       ; 2141 (2141)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|GameLogic:GameLogic_inst                                               ; GameLogic     ; work         ;
+;       |lpm_add_sub:Add241|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|GameLogic:GameLogic_inst|lpm_add_sub:Add241                            ; lpm_add_sub   ; work         ;
+;          |add_sub_8ui:auto_generated| ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|GameLogic:GameLogic_inst|lpm_add_sub:Add241|add_sub_8ui:auto_generated ; add_sub_8ui   ; work         ;
 ;    |Joypad:Joypad_inst|               ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|Joypad:Joypad_inst                                                     ; Joypad        ; work         ;
-;    |LFSR:RNG_Inst|                    ; 6 (6)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|LFSR:RNG_Inst                                                          ; LFSR          ; work         ;
+;    |LFSR:RNG_Inst|                    ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|LFSR:RNG_Inst                                                          ; LFSR          ; work         ;
 ;    |PLL:PLL_inst|                     ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|PLL:PLL_inst                                                           ; PLL           ; work         ;
 ;       |altpll:altpll_component|       ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|PLL:PLL_inst|altpll:altpll_component                                   ; altpll        ; work         ;
 ;          |PLL_altpll:auto_generated|  ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGAcontroller|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated         ; PLL_altpll    ; work         ;
@@ -274,8 +274,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------+------------------------------------------------------+
 ; Register name                            ; Reason for Removal                                   ;
 +------------------------------------------+------------------------------------------------------+
+; LFSR:RNG_Inst|r_LFSR[1]                  ; Merged with GameLogic:GameLogic_inst|RandomNumber[0] ;
+; LFSR:RNG_Inst|r_LFSR[3]                  ; Merged with GameLogic:GameLogic_inst|RandomNumber[2] ;
+; LFSR:RNG_Inst|r_LFSR[5]                  ; Merged with GameLogic:GameLogic_inst|RandomNumber[4] ;
+; LFSR:RNG_Inst|r_LFSR[6]                  ; Merged with GameLogic:GameLogic_inst|RandomNumber[5] ;
 ; Joypad:Joypad_inst|MovementstateNextY[0] ; Merged with Joypad:Joypad_inst|MovementstateNextX[0] ;
-; Total Number of Removed Registers = 1    ;                                                      ;
+; Total Number of Removed Registers = 5    ;                                                      ;
 +------------------------------------------+------------------------------------------------------+
 
 
@@ -284,7 +288,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2201  ;
+; Total registers                              ; 2197  ;
 ; Number of registers using Synchronous Clear  ; 45    ;
 ; Number of registers using Synchronous Load   ; 256   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -299,17 +303,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------+---------+
 ; Inverted Register                         ; Fan out ;
 +-------------------------------------------+---------+
-; GameLogic:GameLogic_inst|BiggestNumber[0] ; 772     ;
-; GameLogic:GameLogic_inst|FoodPosY[0]      ; 17      ;
-; GameLogic:GameLogic_inst|FoodPosY[2]      ; 17      ;
+; GameLogic:GameLogic_inst|BiggestNumber[0] ; 771     ;
 ; GameLogic:GameLogic_inst|FoodPosX[0]      ; 17      ;
 ; GameLogic:GameLogic_inst|FoodPosX[1]      ; 17      ;
 ; GameLogic:GameLogic_inst|FoodPosX[2]      ; 17      ;
+; GameLogic:GameLogic_inst|FoodPosY[0]      ; 17      ;
+; GameLogic:GameLogic_inst|FoodPosY[2]      ; 17      ;
 ; Joypad:Joypad_inst|MovementstateNextX[0]  ; 3       ;
 ; Joypad:Joypad_inst|MovementstateNextX[1]  ; 1       ;
+; LFSR:RNG_Inst|r_LFSR[4]                   ; 2       ;
 ; LFSR:RNG_Inst|r_LFSR[7]                   ; 2       ;
-; LFSR:RNG_Inst|r_LFSR[4]                   ; 3       ;
-; LFSR:RNG_Inst|r_LFSR[2]                   ; 2       ;
+; LFSR:RNG_Inst|r_LFSR[2]                   ; 1       ;
 ; Total number of inverted registers = 11   ;         ;
 +-------------------------------------------+---------+
 
@@ -319,274 +323,274 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|BiggestNumber[1]           ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|HPOS[8]                    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|NextMoveYPos[2]            ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|BiggestNumber[4]           ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|HPOS[3]                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|NextMoveXPos[2]            ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |VGAcontroller|SYNC:Sync_inst|B[6]                                 ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|VPOS[5]                    ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|VPOS[1]                    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |VGAcontroller|Joypad:Joypad_inst|MovementstateNextY[1]            ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][0][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][0][4]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][1][7]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][2][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][3][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][4][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][5][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][6][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][7][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][8][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][3][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][4][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][5][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][6][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][7][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][8][5]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][9][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][10][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][11][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][12][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][13][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][14][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][15][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][0][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][1][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][2][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][3][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][4][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][5][5]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][6][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][7][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][8][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][9][5]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][10][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][11][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][12][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][13][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][14][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][15][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][0][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][1][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][2][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][3][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][4][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][10][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][11][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][12][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][13][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][14][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[0][15][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][0][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][1][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][2][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][3][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][4][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][5][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][6][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][7][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][8][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][9][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][10][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][11][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][12][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][13][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][14][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[1][15][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][0][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][1][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][2][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][3][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][4][7]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][5][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][6][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][7][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][8][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][9][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][10][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][11][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][12][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][13][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][14][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][15][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][6][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][7][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][8][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][9][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][10][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][11][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][12][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][13][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][14][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[2][15][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][0][4]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][1][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][2][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][3][5]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][4][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][5][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][6][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][7][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][8][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][2][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][3][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][4][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][5][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][6][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][7][5]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][8][5]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][9][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][10][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][11][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][12][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][13][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][14][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][15][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][10][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][11][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][12][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][13][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][14][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[3][15][3]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][0][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][1][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][2][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][1][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][2][2]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][3][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][4][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][4][6]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][5][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][6][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][6][7]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][7][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][8][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][9][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][8][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][9][1]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][10][4]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][11][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][12][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][13][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][14][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][12][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][13][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][14][6]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[4][15][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][0][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][1][5]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][2][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][3][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][4][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][5][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][6][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][7][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][0][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][1][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][2][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][3][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][4][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][5][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][6][5]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][7][7]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][8][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][9][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][10][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][11][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][12][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][13][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][9][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][10][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][11][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][12][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][13][1]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][14][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][15][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][0][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][1][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][2][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][3][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[5][15][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][0][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][1][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][2][5]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][3][6]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][4][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][5][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][6][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][5][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][6][3]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][7][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][8][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][9][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][10][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][11][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][12][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][13][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][14][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][8][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][9][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][10][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][11][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][12][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][13][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][14][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[6][15][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][0][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][1][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][2][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][3][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][4][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][5][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][6][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][0][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][1][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][2][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][3][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][4][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][5][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][6][5]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][7][5]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][8][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][9][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][10][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][11][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][9][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][10][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][11][2]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][12][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][13][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][14][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][15][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][0][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][1][1]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][2][5]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][3][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][4][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][13][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][14][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[7][15][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][0][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][1][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][2][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][3][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][4][4]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][5][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][6][2]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][6][1]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][7][7]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][8][5]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][9][3]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][10][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][11][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][12][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][13][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][14][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][15][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][0][3]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][10][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][11][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][12][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][13][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][14][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[8][15][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][0][1]   ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][1][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][2][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][3][6]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][4][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][5][2]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][6][4]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][7][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][8][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][9][7]   ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][10][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][11][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][12][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][13][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][14][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][15][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][0][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][1][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][2][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][2][7]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][3][5]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][4][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][5][6]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][6][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][7][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][8][4]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][9][1]   ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][10][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][11][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][12][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][13][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][14][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[9][15][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][0][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][1][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][2][4]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][3][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][4][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][5][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][6][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][7][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][8][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][9][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][10][6] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][4][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][5][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][6][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][7][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][8][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][9][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][10][2] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][11][2] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][12][4] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][13][4] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][14][2] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][15][5] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][0][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][1][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][12][1] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][13][3] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][14][6] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[10][15][3] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][0][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][1][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][2][1]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][3][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][4][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][5][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][6][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][7][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][8][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][9][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][10][4] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][11][5] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][12][2] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][4][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][5][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][6][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][7][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][8][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][9][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][10][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][11][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][12][4] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][13][5] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][14][3] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][15][1] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][0][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][1][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][2][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][3][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][4][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][5][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][6][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][14][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[11][15][3] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][0][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][1][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][2][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][3][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][4][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][5][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][6][1]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][7][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][8][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][9][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][10][4] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][11][3] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][12][5] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][8][6]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][9][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][10][1] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][11][6] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][12][7] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][13][7] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][14][1] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][15][5] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][0][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][1][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[12][15][1] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][0][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][1][1]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][2][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][3][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][3][1]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][4][6]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][5][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][6][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][7][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][8][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][6][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][7][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][8][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][9][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][10][2] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][10][7] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][11][7] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][12][3] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][12][7] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][13][7] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][14][1] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][15][1] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][0][5]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][1][1]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][2][3]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][3][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][14][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[13][15][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][0][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][1][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][2][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][3][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][4][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][5][5]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][5][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][6][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][7][2]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][8][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][9][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][10][6] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][11][1] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][7][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][8][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][9][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][10][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][11][7] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][12][7] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][13][7] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][14][1] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][15][4] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][0][6]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][1][4]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][2][2]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][14][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[14][15][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][0][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][1][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][2][7]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][3][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][4][7]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][4][2]  ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][5][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][6][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][7][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][8][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][9][7]  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][10][7] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][6][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][7][1]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][8][3]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][9][4]  ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][10][2] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][11][4] ;
 ; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][12][1] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][13][3] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][14][7] ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][15][1] ;
-; 257:1              ; 3 bits    ; 513 LEs       ; 498 LEs              ; 15 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|FoodPosX[3]                ;
-; 257:1              ; 8 bits    ; 1368 LEs      ; 1360 LEs             ; 8 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|BiggestNumberYPos[0]       ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][13][6] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][14][1] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|TrackSnakeArray[15][15][6] ;
+; 257:1              ; 3 bits    ; 513 LEs       ; 498 LEs              ; 15 LEs                 ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|FoodPosY[3]                ;
+; 257:1              ; 8 bits    ; 1368 LEs      ; 1360 LEs             ; 8 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|BiggestNumberXPos[0]       ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |VGAcontroller|Joypad:Joypad_inst|MovementstateNextX[1]            ;
 ; 257:1              ; 5 bits    ; 855 LEs       ; 850 LEs              ; 5 LEs                  ; Yes        ; |VGAcontroller|GameLogic:GameLogic_inst|FoodPosX[0]                ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |VGAcontroller|SYNC:Sync_inst|G                                    ;
-; 256:1              ; 8 bits    ; 1360 LEs      ; 1360 LEs             ; 0 LEs                  ; No         ; |VGAcontroller|GameLogic:GameLogic_inst|Mux132                     ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |VGAcontroller|SYNC:Sync_inst|B                                    ;
+; 256:1              ; 8 bits    ; 1360 LEs      ; 1360 LEs             ; 0 LEs                  ; No         ; |VGAcontroller|GameLogic:GameLogic_inst|Mux129                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------+
 
 
@@ -975,7 +979,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: GameLogic:GameLogic_inst|lpm_add_sub:Add257 ;
+; Parameter Settings for Inferred Entity Instance: GameLogic:GameLogic_inst|lpm_add_sub:Add241 ;
 +------------------------+--------------+------------------------------------------------------+
 ; Parameter Name         ; Value        ; Type                                                 ;
 +------------------------+--------------+------------------------------------------------------+
@@ -1034,26 +1038,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 35                          ;
-; cycloneiii_ff         ; 2201                        ;
+; cycloneiii_ff         ; 2197                        ;
 ;     ENA               ; 1824                        ;
 ;     ENA SCLR          ; 22                          ;
 ;     SCLR              ; 23                          ;
 ;     SLD               ; 256                         ;
-;     plain             ; 76                          ;
-; cycloneiii_lcell_comb ; 20299                       ;
-;     arith             ; 5307                        ;
-;         2 data inputs ; 3376                        ;
-;         3 data inputs ; 1931                        ;
-;     normal            ; 14992                       ;
-;         0 data inputs ; 243                         ;
-;         1 data inputs ; 267                         ;
-;         2 data inputs ; 992                         ;
-;         3 data inputs ; 1129                        ;
-;         4 data inputs ; 12361                       ;
+;     plain             ; 72                          ;
+; cycloneiii_lcell_comb ; 19661                       ;
+;     arith             ; 5199                        ;
+;         2 data inputs ; 3283                        ;
+;         3 data inputs ; 1916                        ;
+;     normal            ; 14462                       ;
+;         0 data inputs ; 228                         ;
+;         1 data inputs ; 268                         ;
+;         2 data inputs ; 891                         ;
+;         3 data inputs ; 1015                        ;
+;         4 data inputs ; 12060                       ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 29.00                       ;
-; Average LUT depth     ; 11.71                       ;
+; Max LUT depth         ; 29.70                       ;
+; Average LUT depth     ; 11.32                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1062,7 +1066,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:54     ;
+; Top            ; 00:00:51     ;
 +----------------+--------------+
 
 
@@ -1072,7 +1076,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Wed Dec 28 15:21:34 2022
+    Info: Processing started: Sat Jan  7 13:30:54 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGAcontroller3 -c VGAcontroller
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -1164,9 +1168,9 @@ Info (12128): Elaborating entity "Joypad" for hierarchy "Joypad:Joypad_inst" Fil
 Warning (10492): VHDL Process Statement warning at Joypad.vhd(41): signal "MovementstateNextX" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/Joypad.vhd Line: 41
 Warning (10492): VHDL Process Statement warning at Joypad.vhd(42): signal "MovementstateNextY" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/Joypad.vhd Line: 42
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "GameLogic:GameLogic_inst|Add257" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/GameLogic.vhd Line: 97
-Info (12130): Elaborated megafunction instantiation "GameLogic:GameLogic_inst|lpm_add_sub:Add257" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/GameLogic.vhd Line: 97
-Info (12133): Instantiated megafunction "GameLogic:GameLogic_inst|lpm_add_sub:Add257" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/GameLogic.vhd Line: 97
+    Info (278002): Inferred adder/subtractor megafunction ("lpm_add_sub") from the following logic: "GameLogic:GameLogic_inst|Add241" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/GameLogic.vhd Line: 96
+Info (12130): Elaborated megafunction instantiation "GameLogic:GameLogic_inst|lpm_add_sub:Add241" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/GameLogic.vhd Line: 96
+Info (12133): Instantiated megafunction "GameLogic:GameLogic_inst|lpm_add_sub:Add241" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(12)VGASnakeDoneWithOptimization - Copy/GameLogic.vhd Line: 96
     Info (12134): Parameter "LPM_WIDTH" = "4"
     Info (12134): Parameter "LPM_DIRECTION" = "DEFAULT"
     Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
@@ -1180,15 +1184,15 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 20359 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 19725 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 20323 logic cells
+    Info (21061): Implemented 19689 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4985 megabytes
-    Info: Processing ended: Wed Dec 28 15:22:36 2022
-    Info: Elapsed time: 00:01:02
-    Info: Total CPU time (on all processors): 00:01:09
+    Info: Peak virtual memory: 4974 megabytes
+    Info: Processing ended: Sat Jan  7 13:31:54 2023
+    Info: Elapsed time: 00:01:00
+    Info: Total CPU time (on all processors): 00:01:07
 
 

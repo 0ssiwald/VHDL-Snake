@@ -38,7 +38,6 @@ ARCHITECTURE MainGame OF GameLogic IS
 	SIGNAL TrackSnakeArray: ArrayOfIntArray := (others=>(others=> 0)); 	
 -- BiggestNumber is the Head Pos of the Snake
 	SIGNAL BiggestNumber: INTEGER RANGE 0 TO 255 := 1;
-	SIGNAL BiggestNumberFuture: INTEGER RANGE 0 TO 255 := 1;
 -- This tracks the Head Pos
 	SIGNAL BiggestNumberXPos: INTEGER RANGE 0 TO 15;
 	SIGNAL BiggestNumberYPos: INTEGER RANGE 0 TO 15;
@@ -76,11 +75,11 @@ BEGIN
 IF(RISING_EDGE(Clk_50)) THEN
 --------------------------------------------------------------------------------------
 
-	RandomNumber <= (to_integer(unsigned(in_LFSR_Data))- BiggestNumber);
+	RandomNumber <= (to_integer(unsigned(in_LFSR_Data)));
 
 	FOR y IN 0 TO 15 LOOP
 		FOR x IN 0 TO 15 LOOP
-			IF(Reset = '0' AND TrackSnakeArray(y)(x) = 0 AND ((RandomNumber - (x+(16*y))) > 0))THEN
+			IF(Reset = '0' AND TrackSnakeArray(y)(x) = 0 AND ((RandomNumber - (x+(15*y))) > 0))THEN
 				FoodPosX <= x;
 				FoodPosY <= y;
 			END IF;
@@ -132,9 +131,9 @@ IF(GameClock = '1') THEN
 	IF((ResetSig = '1') OR (Reset = '1'))THEN
 		TrackSnakeArray <= (others=>(others=> 0));
 -- Snake head and first Food gets set to this Position
-		TrackSnakeArray(FoodPosX + (FoodPosY -1))(FoodPosY + (FoodPosX -1)) <= 1; --minus 1 so that they can never land on same spot?
-		-- 5 and 3 are just random numbers so that food is away from snake 
-		TrackSnakeArray(FoodPosX)(FoodPosY) <= 255;
+		TrackSnakeArray(FoodPosY + (FoodPosX -1))(FoodPosX + (FoodPosY -1)) <= 1; --minus 1 so that they can never land on same spot?
+		-- (5 and 3 are just random numbers so that food is away from snake) 
+		TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
 --Biggest Number back to 1
 		BiggestNumber <= 1;
 -- Disables the ResetSig
@@ -177,17 +176,19 @@ IF(RISING_EDGE(VGAClk)) THEN
 -- 					1-408            409-536		537-552		553-615 ...
 -- vertical:	 | 42 sync pixels  | 16 edge | 16 x 62 grid px | 16 edge | == 1066 pixel
 --						1-42					43-58		59-74 ...
-DrawPixel <= '0';
-Drawfood <= '0';
-DrawHead <= '0';
+DrawPixel 	<= '0';
+Drawfood 	<= '0';
+DrawHead 	<= '0';
 	FOR y in 0 to 15 LOOP 
 		FOR x IN 0 to 15 LOOP 
-			IF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y) AND TrackSnakeArray(y)(x) = BiggestNumber)THEN -- j is the y Position and i is the x position of the square
-				DrawHead <= '1';
-			ELSIF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y) AND TrackSnakeArray(y)(x) = 255)THEN -- j is the y Position and i is the x position of the square
-				Drawfood <= '1';
-			ELSIF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y) AND TrackSnakeArray(y)(x) > 0)THEN -- j is the y Position and i is the x position of the square
-				DrawPixel <= '1';
+			IF( HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y))THEN
+				IF(TrackSnakeArray(y)(x) = BiggestNumber)THEN -- j is the y Position and i is the x position of the square
+					DrawHead <= '1';
+				ELSIF(TrackSnakeArray(y)(x) = 255)THEN -- j is the y Position and i is the x position of the square
+					Drawfood <= '1';
+				ELSIF(TrackSnakeArray(y)(x) > 0)THEN -- j is the y Position and i is the x position of the square
+					DrawPixel <= '1';
+				END IF;
 			END IF;
 		END LOOP;
 	END LOOP;
