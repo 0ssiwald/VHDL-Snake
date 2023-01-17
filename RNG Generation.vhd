@@ -15,7 +15,7 @@ END ENTITY LFSR;
  
 ARCHITECTURE RTL OF LFSR IS
  
-  SIGNAL r_LFSR : STD_LOGIC_VECTOR(7 DOWNTO 0) := "10010100"; -- initilized with seed
+  SIGNAL r_LFSR : STD_LOGIC_VECTOR(7 DOWNTO 0) := "11010100"; -- initilized with seed
   SIGNAL w_XNOR : STD_LOGIC; -- new bit from XNOR
    
 BEGIN

@@ -57,7 +57,8 @@ COMPONENT SYNC IS
 		VGACLK:			IN STD_LOGIC;
 		HSYNC,VSYNC: 	OUT STD_LOGIC;
 		R,G,B	:			OUT STD_LOGIC_VECTOR(7 downto 0);
-		SyncSig: 		OUT STD_LOGIC;
+		HPOS_Out: 		OUT INTEGER RANGE 0 TO 1688;
+		VPOS_Out: 		OUT INTEGER RANGE 0 TO 1066; 
 		DrawPixel: 		IN STD_LOGIC;
 		DrawHead:		IN STD_LOGIC;
 		DrawFood:		IN STD_LOGIC
@@ -69,7 +70,8 @@ COMPONENT GameLogic IS
 		Clk_50:				IN STD_LOGIC;
 		VGAClk:				IN STD_LOGIC;
 		Reset: 				IN STD_LOGIC;
-		SyncSig: 			IN STD_LOGIC;
+		HPOS: 				IN INTEGER RANGE 0 TO 1688;
+		VPOS: 				IN INTEGER RANGE 0 TO 1066; 
 		DrawPixel: 			OUT STD_LOGIC;
 		DrawHead: 			OUT STD_LOGIC;
 		DrawFood: 			OUT STD_LOGIC;
@@ -82,10 +84,11 @@ END  COMPONENT GameLogic;
 --Testsignals to connect the Componens with port maps
 --SIGNAL Game: ArraysInYPosition;
 SIGNAL VGACLKSig: 			STD_LOGIC;
-SIGNAL SyncSig: 				STD_LOGIC;
 SIGNAL DrawPixelSig: 		STD_LOGIC;
 SIGNAL DrawHeadSig: 			STD_LOGIC;
 SIGNAL DrawFoodSig:			STD_LOGIC;
+SIGNAL HPOSSig:				INTEGER RANGE 0 TO 1688;		
+SIGNAL VPOSSig:				INTEGER RANGE 0 TO 1066; 
 SIGNAL MovementstateXSig:	INTEGER RANGE -1 TO 1;
 SIGNAL MovementstateYSig:	INTEGER RANGE -1 TO 1;
 SIGNAL LFSR_DataSig:			STD_LOGIC_VECTOR(7 downto 0);
@@ -112,7 +115,8 @@ Sync_inst: SYNC PORT MAP(
 			R => VGA_R,
 			G => VGA_G,
 			B => VGA_B,
-			SyncSig => SyncSig,
+			HPOS_Out => HPOSSig,
+			VPOS_Out => VPOSSig,
 			DrawPixel => DrawPixelSig,
 			DrawFood => DrawFoodSig,
 			DrawHead => DrawHeadSig
@@ -123,7 +127,8 @@ GameLogic_inst: GameLogic PORT MAP(
 			Clk_50				=> CLOCK_50,
 			VGACLK 				=> VGACLKSig,
 			Reset					=> Reset,
-			SyncSig 				=> SyncSig,
+			HPOS					 => HPOSSig,
+			VPOS					 => VPOSSig,
 			DrawPixel			=> DrawPixelSig,
 			DrawFood 			=> DrawFoodSig,
 			DrawHead 			=> DrawHeadSig,

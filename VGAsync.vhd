@@ -14,7 +14,8 @@ PORT(
 	R: 					OUT STD_LOGIC_VECTOR(7 downto 0);
 	G: 					OUT STD_LOGIC_VECTOR(7 downto 0);
 	B: 					OUT STD_LOGIC_VECTOR(7 downto 0);
-	SyncSig: 			OUT STD_LOGIC;
+	HPOS_Out: 			OUT INTEGER RANGE 0 TO 1688;
+	VPOS_Out: 			OUT INTEGER RANGE 0 TO 1066; 
 	DrawPixel: 			IN STD_LOGIC;
 	Drawfood:			IN STD_LOGIC;
 	DrawHead:			IN STD_LOGIC
@@ -35,14 +36,12 @@ BEGIN
 --With Clock Cycle HPOS gets increased by 1 till End of Line then reset to 0 and VPOS is increassed by 1
 		IF(HPOS<1688)THEN
 			HPOS<=HPOS+1;
-			SyncSig <= '0'; 
 		ELSE
 			HPOS<=0;
 			IF(VPOS<1066)THEN
 				VPOS<=VPOS+1;
 			ELSE
 				VPOS<=0;
-				SyncSig <= '1';
 			END IF;
 		END IF;
 -------------------------------------------------------------------------------------------------------------------------------------------
@@ -101,5 +100,9 @@ BEGIN
 --------------------------------------------------------------------------------------------------------------------------------------------
 	END IF;
 END PROCESS;
+
+HPOS_Out <= HPOS;
+VPOS_Out <= VPOS;
+
 END MAIN;
 	

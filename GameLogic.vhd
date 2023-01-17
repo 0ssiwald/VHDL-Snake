@@ -6,12 +6,15 @@ use ieee.numeric_std.all;
 ENTITY GameLogic IS
 	GENERIC(
 		g_SNAKE_SPEED_CLK : INTEGER := 20000000 --change here for faster/slower snake higher->slower snake
+		--g_BLINK_FREQ: INTEGER := 1000000;
+		--g_BLINK_TIMES: INTEGER := 20
 	);
 	PORT(
 		VGAClk:				IN STD_LOGIC;
 		Clk_50:				IN STD_LOGIC;
 		Reset: 				IN STD_LOGIC;
-		SyncSig: 			IN STD_LOGIC;
+		HPOS: 				IN INTEGER RANGE 0 TO 1688;
+	   VPOS: 				IN INTEGER RANGE 0 TO 1066; 
 		DrawPixel: 			OUT STD_LOGIC;
 		Drawfood:			OUT STD_LOGIC;
 		DrawHead:			OUT STD_LOGIC;
@@ -28,16 +31,13 @@ ARCHITECTURE MainGame OF GameLogic IS
 	TYPE ArrayOfIntArray IS ARRAY(0 TO 15) OF IntArray;
 
 --Needs to be 0 at standard to disable reset
-	SIGNAL ResetSig: STD_LOGIC;
+	SIGNAL ResetSig: STD_LOGIC := '0';
 --Signal for ClockDivider
-	SIGNAL GameClock : 	std_logic := '0';	
---Signals to keep track of HPOS and VPOS for VGAsync module	
-	SIGNAL HPOS: INTEGER RANGE 0 TO 1688:=0;
-	SIGNAL VPOS: INTEGER RANGE 0 TO 1066:=0; 
+	SIGNAL GameClock : 	STD_LOGIC := '0';	
 --To track Snake body with Numbers	
 	SIGNAL TrackSnakeArray: ArrayOfIntArray := (others=>(others=> 0)); 	
 -- BiggestNumber is the Head Pos of the Snake
-	SIGNAL BiggestNumber: INTEGER RANGE 0 TO 255 := 1;
+	SIGNAL BiggestNumber: INTEGER RANGE 1 TO 256 := 1;
 -- This tracks the Head Pos
 	SIGNAL BiggestNumberXPos: INTEGER RANGE 0 TO 15;
 	SIGNAL BiggestNumberYPos: INTEGER RANGE 0 TO 15;
@@ -50,6 +50,8 @@ ARCHITECTURE MainGame OF GameLogic IS
 	SIGNAL RandomNumber:	INTEGER RANGE 0 TO 255; 
 	SIGNAL FoodPosX:		INTEGER RANGE 0 TO 15 := 7; -- initilized so the food and snake starts someware in the middle 
 	SIGNAL FoodPosY:	 	INTEGER RANGE 0 TO 15 := 5;
+	
+	SIGNAL BlockWhenReset: STD_LOGIC := '0';
 	
 BEGIN	
 --------------------------------------------------------------------------------------	
@@ -69,14 +71,12 @@ BEGIN
 END PROCESS;
 
 --------------------------------------------------------------------------------------
-
-CreateTrackSnakeArray: PROCESS(Clk_50)
+CreateTrackSnakeArray: PROCESS(Clk_50, Reset, GameClock)
 BEGIN	
 IF(RISING_EDGE(Clk_50)) THEN
---------------------------------------------------------------------------------------
 
+IF(BlockWhenReset = '0')THEN
 	RandomNumber <= (to_integer(unsigned(in_LFSR_Data)));
-
 	FOR y IN 0 TO 15 LOOP
 		FOR x IN 0 TO 15 LOOP
 			IF(Reset = '0' AND TrackSnakeArray(y)(x) = 0 AND ((RandomNumber - (x+(15*y))) > 0))THEN
@@ -96,39 +96,30 @@ IF(RISING_EDGE(Clk_50)) THEN
 		NextMoveXPos <= (BiggestNumberXPos + MovementstateX);
 		NextMoveYPos <= (BiggestNumberYPos + MovementstateY);
 	END IF;
-------------------------------------------------------------------------------------------
--- When the Number is 255 = Food
-	IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
-		TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= (BiggestNumber + 1);
-		BiggestNumber <= BiggestNumber + 1;	
-		TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
---When the Number is > 0 and < 255 -> the Snake ate itself
-	ELSIF((TrackSnakeArray(NextMoveYPos)(NextMoveXPos) /= 0))THEN
-		IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = (BiggestNumber - 1))THEN -- is to avoid moving the snake into itself 
-			NextMoveXPos <= (BiggestNumberXPos + ((-1) * MovementstateX));
-			NextMoveYPos <= (BiggestNumberYPos + ((-1) * MovementstateY));
-			BlockNextMove <= '1';
-		ELSE
-			ResetSig <= '1';
+	------------------------------------------------------------------------------------------
+	-- When the Number is 255 = Food
+		IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
+			TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= (BiggestNumber + 1);
+			BiggestNumber <= BiggestNumber + 1;	
+			TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
+	--When the Number is > 0 and < 255 -> the Snake ate itself
+		ELSIF((TrackSnakeArray(NextMoveYPos)(NextMoveXPos) > 0))THEN
+			IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = (BiggestNumber - 1))THEN -- is to avoid moving the snake into itself 
+				NextMoveXPos <= (BiggestNumberXPos + ((-1) * MovementstateX));
+				NextMoveYPos <= (BiggestNumberYPos + ((-1) * MovementstateY));
+				BlockNextMove <= '1';
+			ELSE
+				ResetSig <= '1';
+			END IF;
+		ELSE                -- needs this else statement to default to otherwise the reset sig is always triggert
+			ResetSig <= '0'; -- bugfix for always resetting the snake when the game starts after every clock signal
 		END IF;
-	ELSE -- needs this else statement to default to otherwise the reset sig is always triggert
-		ResetSig <= '0';
-	END IF;
-
+END IF;
 ------------------------------------------------------------------------------------------------------------------	
 IF(GameClock = '1') THEN
-		BlockNextMove <= '0';
-		FOR y IN 0 TO 15 LOOP
-			FOR x IN 0 TO 15 LOOP
-				IF((TrackSnakeArray(y)(x) /= 0) AND (TrackSnakeArray(y)(x) /= 255))THEN
-					TrackSnakeArray(y)(x) <= (TrackSnakeArray(y)(x) - 1);
-				END IF;
-			END LOOP;
-		END LOOP;
-	TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= BiggestNumber; --the new field gets the biggest number		
-----------------------------------------------------------------------------------------
+	--------------------------------------------------------------------------------------
 -- Resets everything if ResetSig is set
-	IF((ResetSig = '1') OR (Reset = '1'))THEN
+	IF(Reset = '1')THEN
 		TrackSnakeArray <= (others=>(others=> 0));
 -- Snake head and first Food gets set to this Position
 		TrackSnakeArray(FoodPosY + (FoodPosX -1))(FoodPosX + (FoodPosY -1)) <= 1; --minus 1 so that they can never land on same spot?
@@ -138,34 +129,44 @@ IF(GameClock = '1') THEN
 		BiggestNumber <= 1;
 -- Disables the ResetSig
 		ResetSig <= '0';	
+		BlockWhenReset <= '0';
+	-- Resets everything if ResetSig is set
+	ELSIF(ResetSig = '1')THEN
+		--TrackSnakeArray <= (others=>(others=> 0));
+		TrackSnakeArray(0) <=  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); -- painted game over screen
+		TrackSnakeArray(1) <=  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		TrackSnakeArray(2) <=  (0, 8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 8, 0, 0, 8, 8);
+		TrackSnakeArray(3) <=  (8, 0, 0, 0, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0);
+		TrackSnakeArray(4) <=  (8, 0, 8, 0, 8, 8, 8, 0, 8, 0, 8, 0, 8, 0, 8, 8);
+		TrackSnakeArray(5) <=  (8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 0, 0, 8, 0, 8, 0);
+		TrackSnakeArray(6) <=  (0, 8, 0, 0, 8, 0, 8, 0, 8, 0, 0, 0, 8, 0, 8, 8);
+		TrackSnakeArray(7) <=  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		TrackSnakeArray(8) <=  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		TrackSnakeArray(9) <=  (0, 0, 8, 0, 0, 8, 0, 8, 0, 8, 8, 0, 8, 8, 0, 0);
+		TrackSnakeArray(10) <= (0, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 0, 8, 0, 8, 0);
+		TrackSnakeArray(11) <= (0, 8, 0, 8, 0, 8, 0, 8, 0, 8, 8, 0, 8, 8, 0, 0);
+		TrackSnakeArray(12) <= (0, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 0, 8, 0, 8, 0);
+		TrackSnakeArray(13) <= (0, 0, 8, 0, 0, 0, 8, 0, 0, 8, 8, 0, 8, 0, 8, 0);
+		TrackSnakeArray(14) <= (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		TrackSnakeArray(15) <= (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		BlockWhenReset <= '1';
+	ELSE	
+		BlockNextMove <= '0';
+		FOR y IN 0 TO 15 LOOP
+			FOR x IN 0 TO 15 LOOP
+				IF((TrackSnakeArray(y)(x) /= 0) AND (TrackSnakeArray(y)(x) /= 255))THEN
+					TrackSnakeArray(y)(x) <= (TrackSnakeArray(y)(x) - 1);
+				END IF;
+			END LOOP;
+		END LOOP;
+		TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= BiggestNumber; --the new field gets the biggest number	
 	END IF;
 END IF;
 ---------------
 END IF;
 END PROCESS;
 	
-------------------------------------------------------------------------------------------	
-	
---To sync with the VGAsync module and count HPOS and VPOS the same way
-SyncWithVGAsyc: PROCESS(VGAClk, SyncSig) -- new SyncSig
-BEGIN
-IF(RISING_EDGE(VGAClk)) THEN
-----------------------------------------------------------------------------------------
-	IF(SyncSig = '1')THEN
-		HPOS <= 0;
-		VPOS <= 0;
-	ELSIF(HPOS<1688)THEN -- new elsif
-		HPOS<=HPOS+1;
-	ELSE
-		HPOS<=0;
-		IF(VPOS<1066)THEN
-			VPOS<=VPOS+1;
-		ELSE
-			VPOS<=0;
-		END IF;
-	END IF;
-END IF;
-END PROCESS; 
+------------------------------------------------------------------------------------------
 
 -- Decides if the Draw Signal should be high for the VGAsync module
 CreateDrawPixel: PROCESS(VGAClk)
@@ -181,7 +182,7 @@ Drawfood 	<= '0';
 DrawHead 	<= '0';
 	FOR y in 0 to 15 LOOP 
 		FOR x IN 0 to 15 LOOP 
-			IF( HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y))THEN
+			IF(HPOS>(552+(62*x)) AND HPOS<=(552+62+(62*x)) AND VPOS>(58+62*y) AND VPOS<=(58+62+62*y))THEN
 				IF(TrackSnakeArray(y)(x) = BiggestNumber)THEN -- j is the y Position and i is the x position of the square
 					DrawHead <= '1';
 				ELSIF(TrackSnakeArray(y)(x) = 255)THEN -- j is the y Position and i is the x position of the square

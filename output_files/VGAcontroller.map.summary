@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sat Jan  7 13:31:54 2023
+Analysis & Synthesis Status : Successful - Tue Jan 17 18:02:27 2023
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : VGAcontroller
 Top-level Entity Name : VGAcontroller
 Family : Cyclone IV E
-Total logic elements : 19,682
-    Total combinational functions : 19,659
-    Dedicated logic registers : 2,197
-Total registers : 2197
+Total logic elements : 21,717
+    Total combinational functions : 21,693
+    Dedicated logic registers : 2,180
+Total registers : 2180
 Total pins : 35
 Total virtual pins : 0
 Total memory bits : 0
