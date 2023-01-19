@@ -1,0 +1,6 @@
+entity GDS5 is
+	PORT  (	
+					 SW : 			in std_logic_vector(8 downto 0);			-- Binäre Zahl eingabe über schalter
+				A, B, C: 			out std_logic_vector(6 downto 0)			-- 7segment display outout
+			);	
+end GDS5;

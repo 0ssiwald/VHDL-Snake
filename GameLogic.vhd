@@ -6,8 +6,6 @@ use ieee.numeric_std.all;
 ENTITY GameLogic IS
 	GENERIC(
 		g_SNAKE_SPEED_CLK : INTEGER := 20000000 --change here for faster/slower snake higher->slower snake
-		--g_BLINK_FREQ: INTEGER := 1000000;
-		--g_BLINK_TIMES: INTEGER := 20
 	);
 	PORT(
 		VGAClk:				IN STD_LOGIC;
@@ -44,14 +42,13 @@ ARCHITECTURE MainGame OF GameLogic IS
 --This is the XY Pos of the next Field
 	SIGNAL NextMoveXPos: INTEGER RANGE 0 TO 15;
 	SIGNAL NextMoveYPos: INTEGER RANGE 0 TO 15;
--- to block updating NextPosMove if TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = (BiggestNumber - 1)
-	SIGNAL BlockNextMove: STD_LOGIC := '0'; 
 --Signals from Random Number generation
 	SIGNAL RandomNumber:	INTEGER RANGE 0 TO 255; 
 	SIGNAL FoodPosX:		INTEGER RANGE 0 TO 15 := 7; -- initilized so the food and snake starts someware in the middle 
 	SIGNAL FoodPosY:	 	INTEGER RANGE 0 TO 15 := 5;
 	
-	SIGNAL BlockWhenReset: STD_LOGIC := '0';
+	SIGNAL MovementstatePastX:			INTEGER RANGE -1 TO 1 := 1;
+	SIGNAL MovementstatePastY: 		INTEGER RANGE -1 TO 1 := 0;
 	
 BEGIN	
 --------------------------------------------------------------------------------------	
@@ -75,16 +72,22 @@ CreateTrackSnakeArray: PROCESS(Clk_50, Reset, GameClock)
 BEGIN	
 IF(RISING_EDGE(Clk_50)) THEN
 
-IF(BlockWhenReset = '0')THEN
+-- is to avoid moving the snake into itself
+	IF(NOT(MovementstatePastX = (MovementstateX * (-1))  AND  MovementstatePastY = (MovementstateY * (-1))) OR BiggestNumber = 1)THEN 
+		MovementstatePastX <= MovementstateX;
+		MovementstatePastY <= MovementstateY;
+	END IF;
+		
+IF(ResetSig = '0' AND Reset = '0')THEN
 	RandomNumber <= (to_integer(unsigned(in_LFSR_Data)));
 	FOR y IN 0 TO 15 LOOP
 		FOR x IN 0 TO 15 LOOP
-			IF(Reset = '0' AND TrackSnakeArray(y)(x) = 0 AND ((RandomNumber - (x+(15*y))) > 0))THEN
+			IF(TrackSnakeArray(y)(x) = 0 AND ((RandomNumber - (x+(16*y))) >= 0))THEN
 				FoodPosX <= x;
 				FoodPosY <= y;
 			END IF;
 --Searches for the biggest Number !=255 in the Array
-			IF((TrackSnakeArray(y)(x) >= BiggestNumber)  AND (TrackSnakeArray(y)(x) < 255))THEN
+			IF((TrackSnakeArray(y)(x) = BiggestNumber))THEN
 				BiggestNumberXPos <= x; --gets the x pos
 				BiggestNumberYPos <= y; -- gets thy y pos
 			END IF;
@@ -92,28 +95,24 @@ IF(BlockWhenReset = '0')THEN
 	END LOOP;
 ------------------------------------------------------------------------------------------
 -- Saves the position where the Movementstate is pointing
-	IF(BlockNextMove = '0')THEN 
-		NextMoveXPos <= (BiggestNumberXPos + MovementstateX);
-		NextMoveYPos <= (BiggestNumberYPos + MovementstateY);
-	END IF;
+		NextMoveXPos <= (BiggestNumberXPos + MovementstatePastX);
+		NextMoveYPos <= (BiggestNumberYPos + MovementstatePastY);
 	------------------------------------------------------------------------------------------
-	-- When the Number is 255 = Food
-		IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
+	-- When the Number is 0 = Free Field
+		IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 0)THEN
+			ResetSig <= '0';
+		-- When the Number is 255 = Food
+		ELSIF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
 			TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= (BiggestNumber + 1);
 			BiggestNumber <= BiggestNumber + 1;	
 			TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
-	--When the Number is > 0 and < 255 -> the Snake ate itself
-		ELSIF((TrackSnakeArray(NextMoveYPos)(NextMoveXPos) > 0))THEN
-			IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = (BiggestNumber - 1))THEN -- is to avoid moving the snake into itself 
-				NextMoveXPos <= (BiggestNumberXPos + ((-1) * MovementstateX));
-				NextMoveYPos <= (BiggestNumberYPos + ((-1) * MovementstateY));
-				BlockNextMove <= '1';
-			ELSE
-				ResetSig <= '1';
-			END IF;
-		ELSE                -- needs this else statement to default to otherwise the reset sig is always triggert
-			ResetSig <= '0'; -- bugfix for always resetting the snake when the game starts after every clock signal
+			ResetSig <= '0';
+		ELSIF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) < BiggestNumber)THEN
+			ResetSig <= '1';
+		ELSE
+			ResetSig <= '0';
 		END IF;
+
 END IF;
 ------------------------------------------------------------------------------------------------------------------	
 IF(GameClock = '1') THEN
@@ -129,10 +128,8 @@ IF(GameClock = '1') THEN
 		BiggestNumber <= 1;
 -- Disables the ResetSig
 		ResetSig <= '0';	
-		BlockWhenReset <= '0';
 	-- Resets everything if ResetSig is set
 	ELSIF(ResetSig = '1')THEN
-		--TrackSnakeArray <= (others=>(others=> 0));
 		TrackSnakeArray(0) <=  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0); -- painted game over screen
 		TrackSnakeArray(1) <=  (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		TrackSnakeArray(2) <=  (0, 8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 8, 0, 0, 8, 8);
@@ -149,9 +146,7 @@ IF(GameClock = '1') THEN
 		TrackSnakeArray(13) <= (0, 0, 8, 0, 0, 0, 8, 0, 0, 8, 8, 0, 8, 0, 8, 0);
 		TrackSnakeArray(14) <= (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		TrackSnakeArray(15) <= (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-		BlockWhenReset <= '1';
-	ELSE	
-		BlockNextMove <= '0';
+	ELSE
 		FOR y IN 0 TO 15 LOOP
 			FOR x IN 0 TO 15 LOOP
 				IF((TrackSnakeArray(y)(x) /= 0) AND (TrackSnakeArray(y)(x) /= 255))THEN
