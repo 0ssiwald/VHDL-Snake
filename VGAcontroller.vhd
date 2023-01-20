@@ -18,7 +18,8 @@ ENTITY VGAcontroller IS
 --Synchronization Signals 
 		VGA_HS,VGA_VS:			OUT STD_LOGIC;
 --RGB Coulor Canels 
-		VGA_R,VGA_G,VGA_B: 	OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		VGA_R,VGA_G,VGA_B: 	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		A, B, C: 				out std_logic_vector(6 downto 0)			-- 7segment display outout
 	);
 
 END VGAcontroller;
@@ -77,10 +78,18 @@ COMPONENT GameLogic IS
 		DrawFood: 			OUT STD_LOGIC;
 		in_LFSR_Data : 	IN std_logic_vector(7 downto 0);
 		MovementstateX:	IN INTEGER RANGE -1 TO 1;
-		MovementstateY:	IN INTEGER RANGE -1 TO 1
+		MovementstateY:	IN INTEGER RANGE -1 TO 1;
+		BiggestNumberOut: OUT INTEGER RANGE 0 TO 255
 	);
 END  COMPONENT GameLogic;
 -----------------------------------------------------
+COMPONENT seg7 is
+  port (
+    BiggestNumber : 	in integer range 0 to 255;
+    A, B, C: 			out std_logic_vector(6 downto 0)			-- 7segment display outout
+	);
+END COMPONENT seg7;
+---------------------------------------------------------------
 --Testsignals to connect the Componens with port maps
 --SIGNAL Game: ArraysInYPosition;
 SIGNAL VGACLKSig: 			STD_LOGIC;
@@ -92,6 +101,8 @@ SIGNAL VPOSSig:				INTEGER RANGE 0 TO 1066;
 SIGNAL MovementstateXSig:	INTEGER RANGE -1 TO 1;
 SIGNAL MovementstateYSig:	INTEGER RANGE -1 TO 1;
 SIGNAL LFSR_DataSig:			STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL ASig, BSig, CSig:	STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL BiggestNumberSig:	INTEGER RANGE 0 TO 255;
 
 BEGIN
 --these outputs to the VGA DAC ADV7123 just need to be in this state 
@@ -99,6 +110,9 @@ BEGIN
 VGA_SYNC	 	<= '0';
 VGA_BLANK 	<= '1';
 VGA_CLK_OUT <= VGACLKSig;
+A				<= ASig;
+B				<= BSig;
+C				<= CSig;
 
 
 ----------------------------------------------------
@@ -134,7 +148,8 @@ GameLogic_inst: GameLogic PORT MAP(
 			DrawHead 			=> DrawHeadSig,
 			in_LFSR_Data 		=> LFSR_DataSig,
 			MovementstateX		=> MovementstateXSig,
-			MovementstateY		=> MovementstateYSig
+			MovementstateY		=> MovementstateYSig,
+			BiggestNumberOut	=> BiggestNumberSig
 			);
 ----------------------------------------------------
 --Include the PLL component
@@ -151,5 +166,11 @@ Joypad_inst: Joypad PORT MAP(
 			MovementstateY		=> MovementstateYSig
 	);
 					
------------------------------------------------------			
+-----------------------------------------------------	
+seg7_inst: seg7 PORT MAP(
+			BiggestNumber 	=> BiggestNumberSig,
+			A					=> ASig,
+			B					=> BSig,
+			C					=> CSig
+	);
 END MAIN;

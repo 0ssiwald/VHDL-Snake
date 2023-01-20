@@ -37,6 +37,27 @@ VGA_B[4] << SYNC:Sync_inst.B[4]
 VGA_B[5] << SYNC:Sync_inst.B[5]
 VGA_B[6] << SYNC:Sync_inst.B[6]
 VGA_B[7] << SYNC:Sync_inst.B[7]
+A[0] << seg7:seg7_inst.A[0]
+A[1] << seg7:seg7_inst.A[1]
+A[2] << seg7:seg7_inst.A[2]
+A[3] << seg7:seg7_inst.A[3]
+A[4] << seg7:seg7_inst.A[4]
+A[5] << seg7:seg7_inst.A[5]
+A[6] << seg7:seg7_inst.A[6]
+B[0] << seg7:seg7_inst.B[0]
+B[1] << seg7:seg7_inst.B[1]
+B[2] << seg7:seg7_inst.B[2]
+B[3] << seg7:seg7_inst.B[3]
+B[4] << seg7:seg7_inst.B[4]
+B[5] << seg7:seg7_inst.B[5]
+B[6] << seg7:seg7_inst.B[6]
+C[0] << seg7:seg7_inst.C[0]
+C[1] << seg7:seg7_inst.C[1]
+C[2] << seg7:seg7_inst.C[2]
+C[3] << seg7:seg7_inst.C[3]
+C[4] << seg7:seg7_inst.C[4]
+C[5] << seg7:seg7_inst.C[5]
+C[6] << seg7:seg7_inst.C[6]
 
 
 |VGAcontroller|LFSR:RNG_Inst
@@ -179,7 +200,6 @@ Clk_50 => BiggestNumber[4].CLK
 Clk_50 => BiggestNumber[5].CLK
 Clk_50 => BiggestNumber[6].CLK
 Clk_50 => BiggestNumber[7].CLK
-Clk_50 => BiggestNumber[8].CLK
 Clk_50 => TrackSnakeArray[15][15][0].CLK
 Clk_50 => TrackSnakeArray[15][15][1].CLK
 Clk_50 => TrackSnakeArray[15][15][2].CLK
@@ -4347,7 +4367,6 @@ Reset => BiggestNumber.OUTPUTSELECT
 Reset => BiggestNumber.OUTPUTSELECT
 Reset => BiggestNumber.OUTPUTSELECT
 Reset => BiggestNumber.OUTPUTSELECT
-Reset => BiggestNumber.OUTPUTSELECT
 Reset => ResetSig.OUTPUTSELECT
 Reset => CreateTrackSnakeArray.IN1
 HPOS[0] => LessThan257.IN22
@@ -5077,6 +5096,14 @@ MovementstateY[1] => Add2.IN4
 MovementstateY[1] => Add2.IN5
 MovementstateY[1] => Add2.IN9
 MovementstateY[1] => MovementstatePastY[1].DATAIN
+BiggestNumberOut[0] <= BiggestNumber[0].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[1] <= BiggestNumber[1].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[2] <= BiggestNumber[2].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[3] <= BiggestNumber[3].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[4] <= BiggestNumber[4].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[5] <= BiggestNumber[5].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[6] <= BiggestNumber[6].DB_MAX_OUTPUT_PORT_TYPE
+BiggestNumberOut[7] <= BiggestNumber[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |VGAcontroller|PLL:PLL_inst
@@ -5181,5 +5208,59 @@ MovementstateX[0] <= MovementstateX[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 MovementstateX[1] <= MovementstateX[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 MovementstateY[0] <= MovementstateY[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 MovementstateY[1] <= MovementstateY[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VGAcontroller|seg7:seg7_inst
+BiggestNumber[0] => Mux0.IN19
+BiggestNumber[0] => Mux1.IN19
+BiggestNumber[0] => Mux2.IN10
+BiggestNumber[0] => Mux3.IN19
+BiggestNumber[0] => Mux4.IN10
+BiggestNumber[0] => Mux5.IN10
+BiggestNumber[0] => Mux6.IN19
+BiggestNumber[0] => Div0.IN14
+BiggestNumber[0] => Div1.IN11
+BiggestNumber[1] => Div0.IN13
+BiggestNumber[1] => Div1.IN10
+BiggestNumber[1] => Add3.IN22
+BiggestNumber[2] => Div0.IN12
+BiggestNumber[2] => Div1.IN9
+BiggestNumber[2] => Add3.IN21
+BiggestNumber[3] => Div0.IN11
+BiggestNumber[3] => Div1.IN8
+BiggestNumber[3] => Add3.IN20
+BiggestNumber[4] => Div0.IN10
+BiggestNumber[4] => Div1.IN7
+BiggestNumber[4] => Add3.IN19
+BiggestNumber[5] => Div0.IN9
+BiggestNumber[5] => Div1.IN6
+BiggestNumber[5] => Add3.IN18
+BiggestNumber[6] => Div0.IN8
+BiggestNumber[6] => Div1.IN5
+BiggestNumber[6] => Add3.IN17
+BiggestNumber[7] => Div0.IN7
+BiggestNumber[7] => Div1.IN4
+BiggestNumber[7] => Add3.IN16
+A[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+A[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+A[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+A[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+A[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+A[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+A[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= Mux13.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= Mux12.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+B[4] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+B[5] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+B[6] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+C[0] <= Mux20.DB_MAX_OUTPUT_PORT_TYPE
+C[1] <= Mux19.DB_MAX_OUTPUT_PORT_TYPE
+C[2] <= Mux18.DB_MAX_OUTPUT_PORT_TYPE
+C[3] <= Mux17.DB_MAX_OUTPUT_PORT_TYPE
+C[4] <= Mux16.DB_MAX_OUTPUT_PORT_TYPE
+C[5] <= Mux15.DB_MAX_OUTPUT_PORT_TYPE
+C[6] <= Mux14.DB_MAX_OUTPUT_PORT_TYPE
 
 

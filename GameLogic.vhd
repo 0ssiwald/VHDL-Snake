@@ -18,7 +18,8 @@ ENTITY GameLogic IS
 		DrawHead:			OUT STD_LOGIC;
 		in_LFSR_Data : 	IN STD_LOGIC_VECTOR(7 downto 0);
 		MovementstateX: 	IN INTEGER RANGE -1 TO 1;
-		MovementstateY: 	IN INTEGER RANGE -1 TO 1
+		MovementstateY: 	IN INTEGER RANGE -1 TO 1;
+		BiggestNumberOut: OUT INTEGER RANGE 0 TO 255
 	);
 END GameLogic;
 
@@ -35,7 +36,7 @@ ARCHITECTURE MainGame OF GameLogic IS
 --To track Snake body with Numbers	
 	SIGNAL TrackSnakeArray: ArrayOfIntArray := (others=>(others=> 0)); 	
 -- BiggestNumber is the Head Pos of the Snake
-	SIGNAL BiggestNumber: INTEGER RANGE 1 TO 256 := 1;
+	SIGNAL BiggestNumber: INTEGER RANGE 0 TO 255 := 1;
 -- This tracks the Head Pos
 	SIGNAL BiggestNumberXPos: INTEGER RANGE 0 TO 15;
 	SIGNAL BiggestNumberYPos: INTEGER RANGE 0 TO 15;
@@ -51,6 +52,7 @@ ARCHITECTURE MainGame OF GameLogic IS
 	SIGNAL MovementstatePastY: 		INTEGER RANGE -1 TO 1 := 0;
 	
 BEGIN	
+BiggestNumberOut <= BiggestNumber;
 --------------------------------------------------------------------------------------	
 --ClockDivider based on https://electronics.stackexchange.com/questions/72990/fpga-clock-strategy
 SnakeSpeed: PROCESS(Clk_50)
@@ -95,23 +97,23 @@ IF(ResetSig = '0' AND Reset = '0')THEN
 	END LOOP;
 ------------------------------------------------------------------------------------------
 -- Saves the position where the Movementstate is pointing
-		NextMoveXPos <= (BiggestNumberXPos + MovementstatePastX);
-		NextMoveYPos <= (BiggestNumberYPos + MovementstatePastY);
-	------------------------------------------------------------------------------------------
-	-- When the Number is 0 = Free Field
-		IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 0)THEN
-			ResetSig <= '0';
-		-- When the Number is 255 = Food
-		ELSIF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
-			TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= (BiggestNumber + 1);
-			BiggestNumber <= BiggestNumber + 1;	
-			TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
-			ResetSig <= '0';
-		ELSIF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) < BiggestNumber)THEN
-			ResetSig <= '1';
-		ELSE
-			ResetSig <= '0';
-		END IF;
+	NextMoveXPos <= (BiggestNumberXPos + MovementstatePastX);
+	NextMoveYPos <= (BiggestNumberYPos + MovementstatePastY);
+------------------------------------------------------------------------------------------
+-- When the Number is 0 = Free Field
+	IF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 0)THEN
+		ResetSig <= '0';
+	-- When the Number is 255 = Food
+	ELSIF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) = 255)THEN
+		TrackSnakeArray(NextMoveYPos)(NextMoveXPos) <= (BiggestNumber + 1);
+		BiggestNumber <= BiggestNumber + 1;	
+		TrackSnakeArray(FoodPosY)(FoodPosX) <= 255;
+		ResetSig <= '0';
+	ELSIF(TrackSnakeArray(NextMoveYPos)(NextMoveXPos) < BiggestNumber)THEN
+		ResetSig <= '1';
+	ELSE
+		ResetSig <= '0';
+	END IF;
 
 END IF;
 ------------------------------------------------------------------------------------------------------------------	

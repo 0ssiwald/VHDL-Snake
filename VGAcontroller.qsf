@@ -88,17 +88,39 @@ set_location_assignment PIN_G10 -to VGA_R[4]
 set_location_assignment PIN_A12 -to VGA_CLK_OUT
 set_location_assignment PIN_F11 -to VGA_BLANK
 set_location_assignment PIN_C10 -to VGA_SYNC
-set_global_assignment -name VHDL_FILE VGAsync.vhd
-set_global_assignment -name VHDL_FILE VGAcontroller.vhd
-set_global_assignment -name QIP_FILE PLL.qip
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VHDL_FILE GameLogic.vhd
 set_location_assignment PIN_AB28 -to Reset
 set_location_assignment PIN_M21 -to ButtonIn[3]
 set_location_assignment PIN_M23 -to ButtonIn[2]
 set_location_assignment PIN_R24 -to ButtonIn[1]
 set_location_assignment PIN_N21 -to ButtonIn[0]
+set_global_assignment -name VHDL_FILE SegmentDisplay.vhd
+set_global_assignment -name VHDL_FILE VGAsync.vhd
+set_global_assignment -name VHDL_FILE VGAcontroller.vhd
+set_global_assignment -name QIP_FILE PLL.qip
+set_global_assignment -name VHDL_FILE GameLogic.vhd
 set_global_assignment -name VHDL_FILE Joypad.vhd
 set_global_assignment -name VHDL_FILE "RNG Generation.vhd"
+set_location_assignment PIN_G18 -to A[0]
+set_location_assignment PIN_F22 -to A[1]
+set_location_assignment PIN_E17 -to A[2]
+set_location_assignment PIN_L26 -to A[3]
+set_location_assignment PIN_L25 -to A[4]
+set_location_assignment PIN_J22 -to A[5]
+set_location_assignment PIN_H22 -to A[6]
+set_location_assignment PIN_M24 -to B[0]
+set_location_assignment PIN_Y22 -to B[1]
+set_location_assignment PIN_W21 -to B[2]
+set_location_assignment PIN_W22 -to B[3]
+set_location_assignment PIN_W25 -to B[4]
+set_location_assignment PIN_U23 -to B[5]
+set_location_assignment PIN_U24 -to B[6]
+set_location_assignment PIN_AA25 -to C[0]
+set_location_assignment PIN_AA26 -to C[1]
+set_location_assignment PIN_Y25 -to C[2]
+set_location_assignment PIN_W26 -to C[3]
+set_location_assignment PIN_Y26 -to C[4]
+set_location_assignment PIN_W27 -to C[5]
+set_location_assignment PIN_W28 -to C[6]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
