@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGAcontroller
-Fri Jan 20 09:29:55 2023
+Sat Jan 21 09:17:43 2023
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jan 20 09:29:55 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 21 09:17:43 2023       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; VGAcontroller                               ;
 ; Top-level Entity Name              ; VGAcontroller                               ;
@@ -180,36 +180,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                     ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
-; SegmentDisplay.vhd               ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd         ;         ;
-; VGAsync.vhd                      ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAsync.vhd                ;         ;
-; VGAcontroller.vhd                ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd          ;         ;
-; PLL.vhd                          ; yes             ; User Wizard-Generated File   ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/PLL.vhd                    ;         ;
-; GameLogic.vhd                    ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/GameLogic.vhd              ;         ;
-; Joypad.vhd                       ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/Joypad.vhd                 ;         ;
-; RNG Generation.vhd               ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/RNG Generation.vhd         ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf                                ;         ;
-; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                            ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_pll.inc                           ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratixii_pll.inc                         ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/cycloneii_pll.inc                         ;         ;
-; db/pll_altpll.v                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/pll_altpll.v            ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf                            ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc                           ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc                       ;         ;
-; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/lpm_divide_jhm.tdf      ;         ;
-; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/sign_div_unsign_bkh.tdf ;         ;
-; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/alt_u_div_a4f.tdf       ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/add_sub_7pc.tdf         ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/add_sub_8pc.tdf         ;         ;
-; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/lpm_divide_mhm.tdf      ;         ;
-; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/sign_div_unsign_ekh.tdf ;         ;
-; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/alt_u_div_g4f.tdf       ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; SegmentDisplay.vhd               ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd         ;         ;
+; VGAsync.vhd                      ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAsync.vhd                ;         ;
+; VGAcontroller.vhd                ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd          ;         ;
+; PLL.vhd                          ; yes             ; User Wizard-Generated File   ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/PLL.vhd                    ;         ;
+; GameLogic.vhd                    ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/GameLogic.vhd              ;         ;
+; Joypad.vhd                       ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/Joypad.vhd                 ;         ;
+; RNG Generation.vhd               ; yes             ; User VHDL File               ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/RNG Generation.vhd         ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf                        ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                    ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_pll.inc                   ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratixii_pll.inc                 ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/cycloneii_pll.inc                 ;         ;
+; db/pll_altpll.v                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/pll_altpll.v            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf                    ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc                   ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc               ;         ;
+; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/lpm_divide_jhm.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/alt_u_div_a4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/lpm_divide_mhm.tdf      ;         ;
+; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/sign_div_unsign_ekh.tdf ;         ;
+; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/alt_u_div_g4f.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -1093,7 +1093,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:46     ;
+; Top            ; 00:00:42     ;
 +----------------+--------------+
 
 
@@ -1103,40 +1103,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Fri Jan 20 09:29:01 2023
+    Info: Processing started: Sat Jan 21 09:16:53 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGAcontroller3 -c VGAcontroller
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file segmentdisplay.vhd
-    Info (12022): Found design unit 1: seg7-arch7 File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 12
-    Info (12023): Found entity 1: seg7 File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 5
+    Info (12022): Found design unit 1: seg7-arch7 File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 12
+    Info (12023): Found entity 1: seg7 File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file vgasync.vhd
-    Info (12022): Found design unit 1: SYNC-MAIN File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAsync.vhd Line: 25
-    Info (12023): Found entity 1: SYNC File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAsync.vhd Line: 10
+    Info (12022): Found design unit 1: SYNC-MAIN File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAsync.vhd Line: 25
+    Info (12023): Found entity 1: SYNC File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAsync.vhd Line: 10
 Info (12021): Found 2 design units, including 1 entities, in source file vgacontroller.vhd
-    Info (12022): Found design unit 1: VGAcontroller-MAIN File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 27
-    Info (12023): Found entity 1: VGAcontroller File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 6
+    Info (12022): Found design unit 1: VGAcontroller-MAIN File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 28
+    Info (12023): Found entity 1: VGAcontroller File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-SYN File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/PLL.vhd Line: 53
-    Info (12023): Found entity 1: PLL File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/PLL.vhd Line: 43
+    Info (12022): Found design unit 1: pll-SYN File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/PLL.vhd Line: 53
+    Info (12023): Found entity 1: PLL File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/PLL.vhd Line: 43
 Info (12021): Found 2 design units, including 1 entities, in source file gamelogic.vhd
-    Info (12022): Found design unit 1: GameLogic-MainGame File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/GameLogic.vhd Line: 26
-    Info (12023): Found entity 1: GameLogic File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/GameLogic.vhd Line: 6
+    Info (12022): Found design unit 1: GameLogic-MainGame File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/GameLogic.vhd Line: 26
+    Info (12023): Found entity 1: GameLogic File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/GameLogic.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file joypad.vhd
-    Info (12022): Found design unit 1: Joypad-Main File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/Joypad.vhd Line: 16
-    Info (12023): Found entity 1: Joypad File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/Joypad.vhd Line: 6
+    Info (12022): Found design unit 1: Joypad-Main File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/Joypad.vhd Line: 16
+    Info (12023): Found entity 1: Joypad File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/Joypad.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file rng generation.vhd
-    Info (12022): Found design unit 1: LFSR-RTL File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/RNG Generation.vhd Line: 16
-    Info (12023): Found entity 1: LFSR File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/RNG Generation.vhd Line: 9
+    Info (12022): Found design unit 1: LFSR-RTL File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/RNG Generation.vhd Line: 16
+    Info (12023): Found entity 1: LFSR File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/RNG Generation.vhd Line: 9
 Info (12127): Elaborating entity "VGAcontroller" for the top level hierarchy
-Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:RNG_Inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 119
-Info (12128): Elaborating entity "SYNC" for hierarchy "SYNC:Sync_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 125
-Info (12128): Elaborating entity "GameLogic" for hierarchy "GameLogic:GameLogic_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 140
+Info (12128): Elaborating entity "LFSR" for hierarchy "LFSR:RNG_Inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 120
+Info (12128): Elaborating entity "SYNC" for hierarchy "SYNC:Sync_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 126
+Info (12128): Elaborating entity "GameLogic" for hierarchy "GameLogic:GameLogic_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 141
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "TrackSnakeArray" into its bus
-Info (12128): Elaborating entity "PLL" for hierarchy "PLL:PLL_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 156
-Info (12128): Elaborating entity "altpll" for hierarchy "PLL:PLL_inst|altpll:altpll_component" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/PLL.vhd Line: 136
-Info (12130): Elaborated megafunction instantiation "PLL:PLL_inst|altpll:altpll_component" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/PLL.vhd Line: 136
-Info (12133): Instantiated megafunction "PLL:PLL_inst|altpll:altpll_component" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/PLL.vhd Line: 136
+Info (12128): Elaborating entity "PLL" for hierarchy "PLL:PLL_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 157
+Info (12128): Elaborating entity "altpll" for hierarchy "PLL:PLL_inst|altpll:altpll_component" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/PLL.vhd Line: 136
+Info (12130): Elaborated megafunction instantiation "PLL:PLL_inst|altpll:altpll_component" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/PLL.vhd Line: 136
+Info (12133): Instantiated megafunction "PLL:PLL_inst|altpll:altpll_component" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/PLL.vhd Line: 136
     Info (12134): Parameter "bandwidth_type" = "AUTO"
     Info (12134): Parameter "clk0_divide_by" = "25"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
@@ -1192,46 +1192,46 @@ Info (12133): Instantiated megafunction "PLL:PLL_inst|altpll:altpll_component" w
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
-    Info (12023): Found entity 1: PLL_altpll File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/pll_altpll.v Line: 30
+    Info (12023): Found entity 1: PLL_altpll File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/pll_altpll.v Line: 30
 Info (12128): Elaborating entity "PLL_altpll" for hierarchy "PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated" File: c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "Joypad" for hierarchy "Joypad:Joypad_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 162
-Info (12128): Elaborating entity "seg7" for hierarchy "seg7:seg7_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 170
+Info (12128): Elaborating entity "Joypad" for hierarchy "Joypad:Joypad_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 163
+Info (12128): Elaborating entity "seg7" for hierarchy "seg7:seg7_inst" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 171
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seg7:seg7_inst|Div1" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 25
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seg7:seg7_inst|Div0" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 24
-Info (12130): Elaborated megafunction instantiation "seg7:seg7_inst|lpm_divide:Div1" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 25
-Info (12133): Instantiated megafunction "seg7:seg7_inst|lpm_divide:Div1" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seg7:seg7_inst|Div1" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 25
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "seg7:seg7_inst|Div0" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 24
+Info (12130): Elaborated megafunction instantiation "seg7:seg7_inst|lpm_divide:Div1" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 25
+Info (12133): Instantiated megafunction "seg7:seg7_inst|lpm_divide:Div1" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 25
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jhm.tdf
-    Info (12023): Found entity 1: lpm_divide_jhm File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/lpm_divide_jhm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_jhm File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/lpm_divide_jhm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_bkh File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/sign_div_unsign_bkh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/sign_div_unsign_bkh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
-    Info (12023): Found entity 1: alt_u_div_a4f File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/alt_u_div_a4f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_a4f File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/alt_u_div_a4f.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
-    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/add_sub_7pc.tdf Line: 23
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
-    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "seg7:seg7_inst|lpm_divide:Div0" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 24
-Info (12133): Instantiated megafunction "seg7:seg7_inst|lpm_divide:Div0" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/SegmentDisplay.vhd Line: 24
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/add_sub_8pc.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "seg7:seg7_inst|lpm_divide:Div0" File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 24
+Info (12133): Instantiated megafunction "seg7:seg7_inst|lpm_divide:Div0" with the following parameter: File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/SegmentDisplay.vhd Line: 24
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mhm.tdf
-    Info (12023): Found entity 1: lpm_divide_mhm File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/lpm_divide_mhm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_mhm File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/lpm_divide_mhm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ekh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_ekh File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/sign_div_unsign_ekh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_ekh File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/sign_div_unsign_ekh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g4f.tdf
-    Info (12023): Found entity 1: alt_u_div_g4f File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/db/alt_u_div_g4f.tdf Line: 27
+    Info (12023): Found entity 1: alt_u_div_g4f File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/db/alt_u_div_g4f.tdf Line: 27
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC" is stuck at GND File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 13
-    Warning (13410): Pin "VGA_BLANK" is stuck at VCC File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 14
-    Warning (13410): Pin "C[1]" is stuck at GND File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(13)VGASnakeGameOverFixed - Copy/VGAcontroller.vhd Line: 22
+    Warning (13410): Pin "VGA_SYNC" is stuck at GND File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 13
+    Warning (13410): Pin "VGA_BLANK" is stuck at VCC File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 14
+    Warning (13410): Pin "C[1]" is stuck at GND File: C:/Users/Ossi/Desktop/BHT Zeugs/FPGA/(14)VGASnakeGameOver7seg/VGAcontroller.vhd Line: 23
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -1241,9 +1241,9 @@ Info (21057): Implemented 18407 device resources after synthesis - the final res
     Info (21061): Implemented 18350 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4971 megabytes
-    Info: Processing ended: Fri Jan 20 09:29:55 2023
-    Info: Elapsed time: 00:00:54
-    Info: Total CPU time (on all processors): 00:01:01
+    Info: Peak virtual memory: 4963 megabytes
+    Info: Processing ended: Sat Jan 21 09:17:43 2023
+    Info: Elapsed time: 00:00:50
+    Info: Total CPU time (on all processors): 00:00:56
 
 

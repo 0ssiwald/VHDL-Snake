@@ -11,20 +11,20 @@ END seg7;
 
 ARCHITECTURE arch7 OF seg7 IS
 
-  TYPE digits_type IS ARRAY (2 DOWNTO 0) OF INTEGER RANGE 0 TO 9;
+  TYPE Digits_type IS ARRAY (2 DOWNTO 0) OF INTEGER RANGE 0 TO 9;
   
-  SIGNAL digits: digits_type;
+  SIGNAL Digits: Digits_type;
 
 BEGIN
 
-  ENCODER_PROC: PROCESS(BiggestNumber, digits)
+  ENCODER_PROC: PROCESS(BiggestNumber, Digits)
   BEGIN
 -- get the places of the biggest number with integer division
-	digits(2) <= BiggestNumber / 100;
-	digits(1) <= (BiggestNumber / 10) - ((BiggestNumber / 100) * 10);
-	digits(0) <= BiggestNumber - ((BiggestNumber / 10) * 10);
+	Digits(2) <= BiggestNumber / 100;
+	Digits(1) <= (BiggestNumber / 10) - ((BiggestNumber / 100) * 10);
+	Digits(0) <= BiggestNumber - ((BiggestNumber / 10) * 10);
 	
-	CASE digits(0) is
+	CASE Digits(0) is
 		WHEN 0   => A <= "1000000"; 
 		WHEN 1   => A <= "1111001"; 
 		WHEN 2   => A <= "0100100"; 
@@ -37,7 +37,7 @@ BEGIN
 		WHEN 9   => A <= "0010000"; 
 		WHEN OTHERS => A <= "1111111";
 	END CASE;
-	CASE digits(1) is
+	CASE Digits(1) is
 		WHEN 0   => B <= "1000000"; 
 		WHEN 1   => B <= "1111001"; 
 		WHEN 2   => B <= "0100100"; 
@@ -50,7 +50,7 @@ BEGIN
 		WHEN 9   => B <= "0010000"; 
 		WHEN OTHERS => B <= "1111111";
 	END CASE;
-	CASE digits(2) is
+	CASE Digits(2) is
 		WHEN 0   => C <= "1000000"; 
 		WHEN 1   => C <= "1111001"; 
 		WHEN 2   => C <= "0100100"; 

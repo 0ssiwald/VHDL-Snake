@@ -19,7 +19,8 @@ ENTITY VGAcontroller IS
 		VGA_HS,VGA_VS:			OUT STD_LOGIC;
 --RGB Coulor Canels 
 		VGA_R,VGA_G,VGA_B: 	OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		A, B, C: 				out std_logic_vector(6 downto 0)			-- 7segment display outout
+--7segment display outputs
+		A, B, C: 				OUT STD_LOGIC_VECTOR(6 DOWNTO 0)		-- 7segment display outout
 	);
 
 END VGAcontroller;
@@ -28,8 +29,8 @@ ARCHITECTURE MAIN OF VGAcontroller IS
 ---------------------------------------------------------
 COMPONENT LFSR IS
   PORT (
-    i_Clk    	 : IN std_logic;
-    o_LFSR_Data : OUT std_logic_vector(7 DOWNTO 0)
+    i_Clk    	 : IN STD_LOGIC;
+    o_LFSR_Data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
     );
 END COMPONENT LFSR;
 ----------------------------------------------------------
@@ -85,8 +86,8 @@ END  COMPONENT GameLogic;
 -----------------------------------------------------
 COMPONENT seg7 is
   port (
-    BiggestNumber : 	in integer range 0 to 255;
-    A, B, C: 			out std_logic_vector(6 downto 0)			-- 7segment display outout
+    BiggestNumber : 	IN INTEGER RANGE 0 TO 255;
+    A, B, C: 			OUT STD_LOGIC_VECTOR(6 DOWNTO 0)			-- 7segment display outout
 	);
 END COMPONENT seg7;
 ---------------------------------------------------------------
